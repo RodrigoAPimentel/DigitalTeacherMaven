@@ -2,7 +2,6 @@ package br.com.pimentel.digitalteacher.models;
 
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
@@ -15,12 +14,9 @@ public class Pessoa extends BaseBean {
 	
 	private static final long serialVersionUID = -6890586650010394127L;
 	
-	@GeneratedValue()
-	private Integer idPessoa;
-	
-	private String nome;
 	@Id
 	private String cpf;
+	private String nome;	
 	
 	private String identidade;
 	private String identidadeOrgaoEmissor;
@@ -57,15 +53,14 @@ public class Pessoa extends BaseBean {
 		super();
 	}
 
-	public Pessoa(Integer id, String nome, String cpf, String identidade, String identidadeOrgaoEmissor,
-			Boolean identidade2Via, String enderecoRua, String enderecoNr, String enderecoBairro, String enderecoCidade,
-			String enderecoEstado, String enderecoComplemento, Date dataNascimento, String naturalidade, byte[] foto,
-			String telefone, String email, char sexo, String tipoSanguineo, String escolaridade, String profissao,
-			Boolean status, String filiacaoMae, String filiacaoPai, String estadoCivil, String outro) {
+	public Pessoa(String cpf, String nome, String identidade, String identidadeOrgaoEmissor, Boolean identidade2Via,
+			String enderecoRua, String enderecoNr, String enderecoBairro, String enderecoCidade, String enderecoEstado,
+			String enderecoComplemento, Date dataNascimento, String naturalidade, byte[] foto, String telefone,
+			String email, char sexo, String tipoSanguineo, String escolaridade, String profissao, Boolean status,
+			String filiacaoMae, String filiacaoPai, String estadoCivil, String outro) {
 		super();
-		this.idPessoa = id;
-		this.nome = nome;
 		this.cpf = cpf;
+		this.nome = nome;
 		this.identidade = identidade;
 		this.identidadeOrgaoEmissor = identidadeOrgaoEmissor;
 		this.identidade2Via = identidade2Via;
@@ -91,12 +86,12 @@ public class Pessoa extends BaseBean {
 		this.outro = outro;
 	}
 
-	public Integer getIdPessoa() {
-		return idPessoa;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setIdPessoa(Integer id) {
-		this.idPessoa = id;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getNome() {
@@ -105,14 +100,6 @@ public class Pessoa extends BaseBean {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 
 	public String getIdentidade() {

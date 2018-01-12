@@ -5,4 +5,5 @@ import br.com.pimentel.digitalteacher.utils.GenericDao;
 
 public class PessoaDao extends GenericDao<Pessoa, String>{
 
+	
 }

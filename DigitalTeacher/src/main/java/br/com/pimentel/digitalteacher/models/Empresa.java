@@ -23,7 +23,7 @@ public class Empresa {
 	private Integer id;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="pessoa_cpf")
+//	@JoinColumn(name="pessoa_cpf")
 	@Lob
 	private Pessoa pessoa_cpf;
 	private String razaoSocial;

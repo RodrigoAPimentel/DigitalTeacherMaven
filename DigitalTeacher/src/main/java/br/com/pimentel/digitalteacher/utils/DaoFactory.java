@@ -20,7 +20,7 @@ public class DaoFactory {
 
 	public static EntityManagerFactory entityManagerFactorInstance() {
 		if (entityManagerFactoryInstance == null) {
-			entityManagerFactoryInstance = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+			entityManagerFactoryInstance = Persistence.createEntityManagerFactory("DigitalTeacherPersistenceUnit");
 		}
 
 		return entityManagerFactoryInstance;
@@ -38,9 +38,9 @@ public class DaoFactory {
 	
 //	private static EmpresaDao empresaDaoInstance;
 //
-//	public static PessoaDao categoryInstance() {
+//	public static EmpresaDao empresaInstance() {
 //		if (empresaDaoInstance == null) {
-//			empresaDaoInstance = new PessoaDao();
+//			empresaDaoInstance = new EmpresaDao();
 //		}
 //
 //		return empresaDaoInstance;

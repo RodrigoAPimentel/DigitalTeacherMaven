@@ -29,16 +29,16 @@ public class Teste {
 		BufferedImage imagem2 = ImageIO.read(new File("C:\\RODRIGO\\PROGRAMAÇÃO\\ICONE\\usuario2.png"));
 		byte[] im2 = Util.getImgBytes(imagem2);
 		
-		Pessoa p1 = new Pessoa(null, "Rodrigo Pimentel", "067.754.474-33", "2915851", "SSP/PB", false, "Rua Antonio Jose Santiago", 
+		Pessoa p1 = new Pessoa( "Rodrigo Pimentel", "067.754.474-33", "2915851", "SSP/PB", false, "Rua Antonio Jose Santiago", 
 				"115", "Dinamerica", "Campina Grande", "Paraiba", "Bloco S, Apt 302", d1, "Campina Grande-PB", 
 				im, "83988664318", "pimentelmsn@hotmail.com", 'M', "B+", "Superior Incompleto", "Gerente Comercial", true,
 				"M. de Lourdes a de A Pimentel", "Sebastião Porto Pimentel", "Casado", "");
-		Pessoa p2 = new Pessoa(null, "Rodrigo Pimentel", "077.754.474-33", "2915851", "SSP/PB", false, "Rua Antonio Jose Santiago", 
+		Pessoa p2 = new Pessoa( "Rodrigo Pimentel", "077.754.474-33", "2915851", "SSP/PB", false, "Rua Antonio Jose Santiago", 
 				"115", "Dinamerica", "Campina Grande", "Paraiba", "Bloco S, Apt 302", d1, "Campina Grande-PB", 
 				im, "83988664318", "pimentelmsn@hotmail.com", 'M', "B+", "Superior Incompleto", "Gerente Comercial", true,
 				"M. de Lourdes a de A Pimentel", "Sebastião Porto Pimentel", "Casado", "");
 		
-		Pessoa p3 = new Pessoa(null, "Rodrigo Pimentel", "977.754.474-33", "2915851", "SSP/PB", false, "Rua Antonio Jose Santiago", 
+		Pessoa p3 = new Pessoa( "Rodrigo Pimentel", "977.754.474-33", "2915851", "SSP/PB", false, "Rua Antonio Jose Santiago", 
 				"115", "Dinamerica", "Campina Grande", "Paraiba", "Bloco S, Apt 302", d1, "Campina Grande-PB", 
 				im, "83988664318", "pimentelmsn@hotmail.com", 'M', "B+", "Superior Incompleto", "Gerente Comercial", true,
 				"M. de Lourdes a de A Pimentel", "Sebastião Porto Pimentel", "Casado", "");
@@ -55,7 +55,7 @@ public class Teste {
 		
 		
 		PessoaDao p1DAO = new PessoaDao();
-//		p1DAO.save(p3);
+//		p1DAO.save(p2);
 		
 		EmpresaDao e1DAO = new EmpresaDao();
 		e1DAO.save(e1);
