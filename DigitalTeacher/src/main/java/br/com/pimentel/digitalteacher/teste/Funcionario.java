@@ -1,10 +1,12 @@
-package br.com.pimentel.digitalteacher.models;
+package br.com.pimentel.digitalteacher.teste;
 
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import br.com.pimentel.digitalteacher.models.Pessoa;
 
 @Entity
 public class Funcionario extends Pessoa {
