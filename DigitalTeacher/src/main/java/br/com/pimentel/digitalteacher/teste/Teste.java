@@ -5,14 +5,14 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.imageio.ImageIO;
-import javax.xml.crypto.Data;
 
-import br.com.pimentel.digitalteacher.daos.EmpresaDao;
+import br.com.pimentel.digitalteacher.daos.FuncionarioDao;
 import br.com.pimentel.digitalteacher.daos.PessoaDao;
-import br.com.pimentel.digitalteacher.models.Empresa;
 import br.com.pimentel.digitalteacher.models.Pessoa;
 
 public class Teste {
@@ -43,31 +43,55 @@ public class Teste {
 				im, "83988664318", "pimentelmsn@hotmail.com", 'M', "B+", "Superior Incompleto", "Gerente Comercial", true,
 				"M. de Lourdes a de A Pimentel", "Sebastião Porto Pimentel", "Casado", "");
 		
-		Pessoa[] pp = {p1};
-		
-		
-		Empresa e1 = new Empresa(null, p1, "Empresa Campinende de Ensino", "Escola ABC", "000.311.222/333-44", "123456", 
-				"7890", d1, "Rua das algarobas", "100", "Floresta", "João Pessoa", "Paraiba", "", im2, "833333-4444", 
-				"escolaabc@asdf.ghj.kl", "", "Joaozinho", true);
-		Empresa e2 = new Empresa(null, p1, "Empresa Campinende de Ensino", "Escola ABC", "010.311.222/333-44", "123456", 
-				"7890", d1, "Rua das algarobas", "100", "Floresta", "João Pessoa", "Paraiba", "", im2, "833333-4444", 
-				"escolaabc@asdf.ghj.kl", "", "Joaozinho", true);
-		
-		
-		PessoaDao p1DAO = new PessoaDao();
+//		PessoaDao p1DAO = new PessoaDao();
 //		p1DAO.save(p2);
+//		p1DAO.deleteForPK("06775447433");
+//		p1DAO.findById("06775447433");
 		
-		EmpresaDao e1DAO = new EmpresaDao();
-		e1DAO.save(e1);
+		
+		
+		
+		
+//		Empresa2 e1 = new Empresa2(null, p1, "Empresa Campinende de Ensino", "Escola ABC", "000.311.222/333-44", "123456", 
+//				"7890", d1, "Rua das algarobas", "100", "Floresta", "João Pessoa", "Paraiba", "", im2, "833333-4444", 
+//				"escolaabc@asdf.ghj.kl", "", "Joaozinho", true);
+//		Empresa2 e2 = new Empresa2(null, p1, "Empresa Campinende de Ensino", "Escola ABC", "010.311.222/333-44", "123456", 
+//				"7890", d1, "Rua das algarobas", "100", "Floresta", "João Pessoa", "Paraiba", "", im2, "833333-4444", 
+//				"escolaabc@asdf.ghj.kl", "", "Joaozinho", true);
+		
+//		Funcionario f1 = new Funcionario();
+//		
+//		
+//		FuncionarioDao f1DAO = new FuncionarioDao();
+//		f1.setCpf("01234567890");
+//		f1.setNome("Joazinho");
+//		f1.setMatricula("012345");
+//		f1.setSalario(998.00);
+//		f1.setFuncao("Secreatrio");
+//		f1.getCpf();
+//		f1.setDataNascimento(d1);
+		
+	
+		
+//		f1DAO.save(f1);
+//		f1DAO.delete(f1);
+//		List<Funcionario> fa = f1DAO.findAll();
+//		
+//		for (int i = 0; i < fa.size(); i++) {
+//			System.out.println(fa.toString());
+//		}
+		
+
+		
+		
+		
+//		EmpresaDao e1DAO = new EmpresaDao();
+//		e1DAO.save(e1);
 		
 //		e1DAO.delete(e1);
 		
 		
 //		System.out.println(p1DAO.save(p1));
-		
-		
-		
-		
 		
 		
 	}

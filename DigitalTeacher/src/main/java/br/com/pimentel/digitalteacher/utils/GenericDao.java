@@ -85,6 +85,17 @@ public abstract class GenericDao<T, PK> {
 			throw e;
 		}
 	}
+	
+	public void deleteForPK(PK pk) {
+		try {
+			this.beginTransaction();
+			this.entityManager.remove((T) this.entityManager.find(this.clazz, pk));
+			this.commit();
+		} catch (Exception e) {
+			this.rollBack();
+			throw e;
+		}
+	}
 
 	///////////////////////////////////////////////////////////////////
 	// Transaction Methods

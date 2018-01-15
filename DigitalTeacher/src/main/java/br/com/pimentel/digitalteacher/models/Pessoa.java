@@ -1,20 +1,34 @@
 package br.com.pimentel.digitalteacher.models;
 
+import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.br.CPF;
 
 import br.com.pimentel.digitalteacher.utils.BaseBean;
 
 @Entity
-public class Pessoa extends BaseBean {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Pessoa extends BaseBean implements Serializable {
 	
 	private static final long serialVersionUID = -6890586650010394127L;
 	
 	@Id
+	@NotNull(message = "O campo não pode ser nulo")
+	@NotBlank(message = "O campo não pode ser em branco")
+	@Length(max = 11, message = "O campo não pode ter mais do que {max} caracteres")
 	private String cpf;
 	private String nome;	
 	
@@ -53,15 +67,15 @@ public class Pessoa extends BaseBean {
 		super();
 	}
 
-	public Pessoa(String cpf, String nome, String identidade, String identidadeOrgaoEmissor, Boolean identidade2Via,
+	public Pessoa(String nome, String cpf, String identidade, String identidadeOrgaoEmissor, Boolean identidade2Via,
 			String enderecoRua, String enderecoNr, String enderecoBairro, String enderecoCidade, String enderecoEstado,
 			String enderecoComplemento, Date dataNascimento, String naturalidade, byte[] foto, String telefone,
 			String email, char sexo, String tipoSanguineo, String escolaridade, String profissao, Boolean status,
 			String filiacaoMae, String filiacaoPai, String estadoCivil, String outro) {
 		super();
-		this.cpf = cpf;
+		this.cpf = cpf.replaceAll("[^0-9]", "");
 		this.nome = nome;
-		this.identidade = identidade;
+		this.identidade = identidade.replaceAll("[^0-9]", "");
 		this.identidadeOrgaoEmissor = identidadeOrgaoEmissor;
 		this.identidade2Via = identidade2Via;
 		this.enderecoRua = enderecoRua;
@@ -73,7 +87,7 @@ public class Pessoa extends BaseBean {
 		this.dataNascimento = dataNascimento;
 		this.naturalidade = naturalidade;
 		this.foto = foto;
-		this.telefone = telefone;
+		this.telefone = telefone.replaceAll("[^0-9]", "");
 		this.email = email;
 		this.sexo = sexo;
 		this.tipoSanguineo = tipoSanguineo;
@@ -90,8 +104,8 @@ public class Pessoa extends BaseBean {
 		return cpf;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setCpf(String cpf) {		
+		this.cpf = cpf.replaceAll("[^0-9]", "");
 	}
 
 	public String getNome() {
@@ -103,7 +117,7 @@ public class Pessoa extends BaseBean {
 	}
 
 	public String getIdentidade() {
-		return identidade;
+		return identidade.replaceAll("[^0-9]", "");
 	}
 
 	public void setIdentidade(String identidade) {
@@ -203,7 +217,7 @@ public class Pessoa extends BaseBean {
 	}
 
 	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+		this.telefone = telefone.replaceAll("[^0-9]", "");
 	}
 
 	public String getEmail() {
