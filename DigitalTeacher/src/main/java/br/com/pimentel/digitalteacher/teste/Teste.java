@@ -14,6 +14,8 @@ import javax.imageio.ImageIO;
 import br.com.pimentel.digitalteacher.daos.FuncionarioDao;
 import br.com.pimentel.digitalteacher.daos.PessoaDao;
 import br.com.pimentel.digitalteacher.models.Pessoa;
+import br.com.pimentel.digitalteacher.utils.DaoFactory;
+import br.com.pimentel.digitalteacher.utils.GenericDao;
 
 public class Teste {
 	
@@ -29,25 +31,37 @@ public class Teste {
 		BufferedImage imagem2 = ImageIO.read(new File("C:\\RODRIGO\\PROGRAMAÇÃO\\ICONE\\usuario2.png"));
 		byte[] im2 = Util.getImgBytes(imagem2);
 		
-		Pessoa p1 = new Pessoa( "Rodrigo Pimentel", "067.754.474-33", "2915851", "SSP/PB", false, "Rua Antonio Jose Santiago", 
+		Pessoa p1 = new Pessoa( "Rodrigo Pimentel", "061.754.474-33", "2915851", "SSP/PB", false, "58.432-045", "Rua Antonio Jose Santiago", 
 				"115", "Dinamerica", "Campina Grande", "Paraiba", "Bloco S, Apt 302", d1, "Campina Grande-PB", 
 				im, "83988664318", "pimentelmsn@hotmail.com", 'M', "B+", "Superior Incompleto", "Gerente Comercial", true,
 				"M. de Lourdes a de A Pimentel", "Sebastião Porto Pimentel", "Casado", "");
-		Pessoa p2 = new Pessoa( "Rodrigo Pimentel", "077.754.474-33", "2915851", "SSP/PB", false, "Rua Antonio Jose Santiago", 
-				"115", "Dinamerica", "Campina Grande", "Paraiba", "Bloco S, Apt 302", d1, "Campina Grande-PB", 
-				im, "83988664318", "pimentelmsn@hotmail.com", 'M', "B+", "Superior Incompleto", "Gerente Comercial", true,
-				"M. de Lourdes a de A Pimentel", "Sebastião Porto Pimentel", "Casado", "");
-		
-		Pessoa p3 = new Pessoa( "Rodrigo Pimentel", "977.754.474-33", "2915851", "SSP/PB", false, "Rua Antonio Jose Santiago", 
+		Pessoa p2 = new Pessoa( "Rodrigo Pimentel", "217.746.519-20", "29158541", "SSP/PB", false,"58.432-045", "Rua Antonio Jose Santiago", 
 				"115", "Dinamerica", "Campina Grande", "Paraiba", "Bloco S, Apt 302", d1, "Campina Grande-PB", 
 				im, "83988664318", "pimentelmsn@hotmail.com", 'M', "B+", "Superior Incompleto", "Gerente Comercial", true,
 				"M. de Lourdes a de A Pimentel", "Sebastião Porto Pimentel", "Casado", "");
 		
-//		PessoaDao p1DAO = new PessoaDao();
+		Pessoa p3 = new Pessoa( "Rodrigo Pimentel", "033.880.338-62", "29158351", "SSP/PB", false, "58.432-045","Rua Antonio Jose Santiago", 
+				"115", "Dinamerica", "Campina Grande", "Paraiba", "Bloco S, Apt 302", d1, "Campina Grande-PB", 
+				im, "83988664318", "pimentelmsn@hotmail.com", 'M', "B+", "Superior Incompleto", "Gerente Comercial", true,
+				"M. de Lourdes a de A Pimentel", "Sebastião Porto Pimentel", "Casado", "");
+		
+		Pessoa p4 = new Pessoa();
+		p4.setCpf("676.151.596-36");
+		p4.setNome("Joaozinho");
+		
+		PessoaDao p1DAO = new PessoaDao();
+//		p1DAO.save(p1);
 //		p1DAO.save(p2);
-//		p1DAO.deleteForPK("06775447433");
+//		p1DAO.save(p3);
+//		p1DAO.save(p4);
+		p1DAO.deleteForPK("49858586507");
 //		p1DAO.findById("06775447433");
+//		System.out.println(p1DAO.findById("06175447433").toString());
 		
+//		List<Pessoa> lp = p1DAO.findAll();		
+//		for (Pessoa pessoa : lp) {
+//			System.out.println(pessoa.toString());
+//		}
 		
 		
 		
@@ -59,10 +73,20 @@ public class Teste {
 //				"7890", d1, "Rua das algarobas", "100", "Floresta", "João Pessoa", "Paraiba", "", im2, "833333-4444", 
 //				"escolaabc@asdf.ghj.kl", "", "Joaozinho", true);
 		
-//		Funcionario f1 = new Funcionario();
-//		
-//		
-//		FuncionarioDao f1DAO = new FuncionarioDao();
+		
+		FuncionarioDao f1DAO = new FuncionarioDao();
+		
+		Funcionario f1 = new Funcionario("01234", "Secretario", 1998.00, d1, null, "Secretaria");
+		Funcionario f2 = new Funcionario("012345", "Auxiliar", 998.00, d1, null, "Cantina");
+//		Funcionario f3 = new Funcionario("012345", "Auxiliar", 998.00, d1, null, "Cantina", "061.754.474-33");
+		f2.setCpf("49858586507");
+		f2.setNome("Manezinho");
+//		f1DAO.save(f2);
+//		f1.setCpf("033.880.338-62");
+//		f1DAO.save(f3);
+//		System.out.println(f1DAO.findById("06175447433").toString());
+//		f1DAO.deleteForPK("49858586507");
+		
 //		f1.setCpf("01234567890");
 //		f1.setNome("Joazinho");
 //		f1.setMatricula("012345");
@@ -92,7 +116,6 @@ public class Teste {
 		
 		
 //		System.out.println(p1DAO.save(p1));
-		
 		
 	}
 

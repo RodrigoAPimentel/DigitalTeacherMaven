@@ -1,11 +1,15 @@
 package br.com.pimentel.digitalteacher.utils;
 
 import java.util.List;
+import java.util.Set;
 import java.lang.reflect.ParameterizedType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
 
 public abstract class GenericDao<T, PK> {
 
@@ -42,38 +46,68 @@ public abstract class GenericDao<T, PK> {
 
 		return createdQuery.getResultList();
 	}
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	@SuppressWarnings("unchecked")
 	public List<T> findAll() {
 		return this.entityManager.createQuery(("FROM " + this.clazz.getName())).getResultList();
 	}
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	@SuppressWarnings("unchecked")
 	public T findById(PK pk) {
-		return (T) this.entityManager.find(this.clazz, pk);
+			return (T) this.entityManager.find(this.clazz, pk);				
 	}
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void save(T entity) {
 		try {
 			this.beginTransaction();
-			this.entityManager.persist(entity);
+			
+			Validator validador = Validation.buildDefaultValidatorFactory().getValidator();
+			Set<ConstraintViolation<T>> erros = validador.validate(entity);
+			if (erros.size() > 0) {
+				for (ConstraintViolation<T> constraintViolation : erros) {
+					System.out.println("Erro: " + constraintViolation.getMessage());
+				}
+			}else {
+				this.entityManager.persist(entity);				
+			}
+			
 			this.commit();
 		} catch (Exception e) {
 			this.rollBack();
 			throw e;
 		}
 	}
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void update(T entity) {
 		try {
 			this.beginTransaction();
-			this.entityManager.merge(entity);
+			
+			Validator validador = Validation.buildDefaultValidatorFactory().getValidator();
+			Set<ConstraintViolation<T>> erros = validador.validate(entity);
+			if (erros.size() > 0) {
+				for (ConstraintViolation<T> constraintViolation : erros) {
+					System.out.println("Erro: " + constraintViolation.getMessage());
+				}
+			}else {
+				this.entityManager.merge(entity);				
+			}			
+			
 			this.commit();
 		} catch (Exception e) {
 			this.rollBack();
 			throw e;
 		}
 	}
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void delete(T entity) {
 		try {
@@ -86,10 +120,12 @@ public abstract class GenericDao<T, PK> {
 		}
 	}
 	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
 	public void deleteForPK(PK pk) {
 		try {
 			this.beginTransaction();
-			this.entityManager.remove((T) this.entityManager.find(this.clazz, pk));
+			this.entityManager.remove(this.entityManager.find(this.clazz, pk));
 			this.commit();
 		} catch (Exception e) {
 			this.rollBack();

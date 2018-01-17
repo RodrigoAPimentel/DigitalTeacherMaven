@@ -11,64 +11,95 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.caelum.stella.bean.validation.CPF;
 import br.com.pimentel.digitalteacher.utils.BaseBean;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Pessoa extends BaseBean implements Serializable {
-	
+
 	private static final long serialVersionUID = -6890586650010394127L;
-	
+
 	@Id
-	@NotNull(message = "O campo não pode ser nulo")
-	@NotBlank(message = "O campo não pode ser em branco")
+	@CPF
+	@NotNull(message = "O CPF não pode ser nulo")
+	@NotBlank(message = "O CPF não pode ser em branco")
 	@Length(max = 11, message = "O campo não pode ter mais do que {max} caracteres")
+	@Column(length = 12)
 	private String cpf;
-	private String nome;	
 	
+	@NotNull(message = "O NOME não pode ser nulo")
+	@NotBlank(message = "O NOME não pode ser em branco")
+	@Length(max = 70, message = "O NOME não pode ter mais do que {max} caracteres")
+	@Column(length = 71)
+	private String nome;	
+
+	@Column(length = 20, unique = true)
 	private String identidade;
+	@Column(length = 20)
 	private String identidadeOrgaoEmissor;
 	private Boolean identidade2Via;
-	
+
+	@Length(max = 8, message = "O CEP não pode ter mais do que {max} caracteres")
+	@Column(length = 9)
+	private String cep;
+	@Column(length = 70)
 	private String enderecoRua;
+	@Column(length = 10)
 	private String enderecoNr;
+	@Column(length = 20)
 	private String enderecoBairro;
+	@Column(length = 20)
 	private String enderecoCidade;
+	@Column(length = 20)
 	private String enderecoEstado;
+	@Column(length = 30)
 	private String enderecoComplemento;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
+	@Column(length = 20)
 	private String naturalidade;
-	
+
 	@Lob
 	private byte[] foto;
-	
+
+	@Length(max = 11, message = "O TELEFONE não pode ter mais do que {max} caracteres")
+	@Column(length = 12)
 	private String telefone;
-	
+
+	@Email
+	@Column(length = 30)
 	private String email;
 	private char sexo;
+	@Column(length = 3)
 	private String tipoSanguineo;	
+	@Column(length = 20)
 	private String escolaridade;
+	@Column(length = 20)
 	private String profissao;
 	private Boolean status;
+	@Column(length = 70)
 	private String filiacaoMae;
+	@Column(length = 70)
 	private String filiacaoPai;
+	@Column(length = 15)
 	private String estadoCivil;	
+	@Column(length = 255)
 	private String outro;
-	
+
 	public Pessoa() {
 		super();
 	}
 
 	public Pessoa(String nome, String cpf, String identidade, String identidadeOrgaoEmissor, Boolean identidade2Via,
-			String enderecoRua, String enderecoNr, String enderecoBairro, String enderecoCidade, String enderecoEstado,
+			String cep, String enderecoRua, String enderecoNr, String enderecoBairro, String enderecoCidade, String enderecoEstado,
 			String enderecoComplemento, Date dataNascimento, String naturalidade, byte[] foto, String telefone,
 			String email, char sexo, String tipoSanguineo, String escolaridade, String profissao, Boolean status,
 			String filiacaoMae, String filiacaoPai, String estadoCivil, String outro) {
@@ -78,6 +109,7 @@ public class Pessoa extends BaseBean implements Serializable {
 		this.identidade = identidade.replaceAll("[^0-9]", "");
 		this.identidadeOrgaoEmissor = identidadeOrgaoEmissor;
 		this.identidade2Via = identidade2Via;
+		this.cep = cep.replaceAll("[^0-9]", "");
 		this.enderecoRua = enderecoRua;
 		this.enderecoNr = enderecoNr;
 		this.enderecoBairro = enderecoBairro;
@@ -117,11 +149,11 @@ public class Pessoa extends BaseBean implements Serializable {
 	}
 
 	public String getIdentidade() {
-		return identidade.replaceAll("[^0-9]", "");
+		return identidade;
 	}
 
 	public void setIdentidade(String identidade) {
-		this.identidade = identidade;
+		this.identidade = identidade.replaceAll("[^0-9]", "");
 	}
 
 	public String getIdentidadeOrgaoEmissor() {
@@ -138,6 +170,14 @@ public class Pessoa extends BaseBean implements Serializable {
 
 	public void setIdentidade2Via(Boolean identidade2Via) {
 		this.identidade2Via = identidade2Via;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep.replaceAll("[^0-9]", "");
 	}
 
 	public String getEnderecoRua() {
@@ -299,5 +339,5 @@ public class Pessoa extends BaseBean implements Serializable {
 	public void setOutro(String outro) {
 		this.outro = outro;
 	}
-	
+
 }
