@@ -5,6 +5,7 @@ import javax.persistence.Persistence;
 
 import br.com.pimentel.digitalteacher.daos.FuncionarioDao;
 import br.com.pimentel.digitalteacher.daos.PessoaDao;
+import br.com.pimentel.digitalteacher.daos.ProfessorDao;
 
 public class DaoFactory {
 	
@@ -44,6 +45,16 @@ public class DaoFactory {
 		}
 
 		return funcionarioDaoInstance;
+	}
+	
+	private static ProfessorDao professorDaoInstance;
+
+	public static ProfessorDao professorDaoInstance() {
+		if (professorDaoInstance == null) {
+			professorDaoInstance = new ProfessorDao();
+		}
+
+		return professorDaoInstance;
 	}
 
 }

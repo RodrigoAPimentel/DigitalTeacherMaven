@@ -26,6 +26,9 @@ public class Pessoa extends BaseBean implements Serializable {
 
 	private static final long serialVersionUID = -6890586650010394127L;
 
+	@Column(length = 5, unique = true)
+	private Integer idPessoa;
+	
 	@Id
 	@CPF
 	@NotNull(message = "O CPF não pode ser nulo")
@@ -130,6 +133,14 @@ public class Pessoa extends BaseBean implements Serializable {
 		this.filiacaoPai = filiacaoPai;
 		this.estadoCivil = estadoCivil;
 		this.outro = outro;
+	}
+
+	public Integer getIdPessoa() {
+		return idPessoa;
+	}
+
+	public void setIdPessoa(Integer idPessoa) {
+		this.idPessoa = idPessoa;
 	}
 
 	public String getCpf() {

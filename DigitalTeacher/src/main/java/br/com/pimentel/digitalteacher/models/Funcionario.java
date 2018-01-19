@@ -1,12 +1,10 @@
-package br.com.pimentel.digitalteacher.teste;
+package br.com.pimentel.digitalteacher.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -15,12 +13,13 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
-import br.com.pimentel.digitalteacher.models.Pessoa;
-
 @Entity
-public class Funcionario extends Pessoa {
+public class Funcionario extends Pessoa implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	@Column(length = 5, unique = true)
+	private Integer idFuncionario;
 	
 	@NotNull(message = "A MATRICULA não pode ser nulo")
 	@NotBlank(message = "A MATRICULA não pode ser em branco")
@@ -35,7 +34,6 @@ public class Funcionario extends Pessoa {
 	private Double salario;
 	
 	@NotNull(message = "A DATA DE ADIMISSÃO não pode ser nulo")
-//	@NotBlank(message = "A DATA DE ADIMISSÃO não pode ser em branco")
 	@Temporal(TemporalType.DATE)
 	private Date dataAdmissao;
 	
@@ -44,44 +42,36 @@ public class Funcionario extends Pessoa {
 	@Column(length = 20)
 	private String alocacao;
 	
+	@Transient
+	private Pessoa pessoa;
+	
 	public Funcionario() {
 		super();
 	}
-
-	public Funcionario(
-			@NotNull(message = "A MATRICULA não pode ser nulo") @NotBlank(message = "A MATRICULA não pode ser em branco") @Length(max = 11, message = "O campo não pode ter mais do que {max} caracteres") String matricula,
-			@NotNull(message = "A FUNÇÃO não pode ser nulo") @NotBlank(message = "A FUNÇÃO não pode ser em branco") String funcao,
-			Double salario, @NotNull(message = "A DATA DE ADIMISSÃO não pode ser nulo") Date dataAdmissao,
-			Date dataDemisao, String alocacao) {
-		this.matricula = matricula;
-		this.funcao = funcao;
-		this.salario = salario;
-		this.dataAdmissao = dataAdmissao;
-		this.dataDemisao = dataDemisao;
-		this.alocacao = alocacao;
-	}
 	
-	public Funcionario(
-			@NotNull(message = "A MATRICULA não pode ser nulo") @NotBlank(message = "A MATRICULA não pode ser em branco") @Length(max = 11, message = "O campo não pode ter mais do que {max} caracteres") String matricula,
-			@NotNull(message = "A FUNÇÃO não pode ser nulo") @NotBlank(message = "A FUNÇÃO não pode ser em branco") String funcao,
-			Double salario, @NotNull(message = "A DATA DE ADIMISSÃO não pode ser nulo") Date dataAdmissao,
-			Date dataDemisao, String alocacao, Pessoa pessoa) {
+	public Funcionario(String matricula, String funcao,	Double salario, Date dataAdmissao, Date dataDemisao, String alocacao, Pessoa pessoa) {
+		
+		super(pessoa.getNome(),pessoa.getCpf(),pessoa.getIdentidade(),pessoa.getIdentidadeOrgaoEmissor(),pessoa.getIdentidade2Via(),pessoa.getCep(),
+				pessoa.getEnderecoRua(),pessoa.getEnderecoNr(),pessoa.getEnderecoBairro(),pessoa.getEnderecoCidade(),pessoa.getEnderecoEstado(),
+				pessoa.getEnderecoComplemento(),pessoa.getDataNascimento(),pessoa.getNaturalidade(),pessoa.getFoto(),pessoa.getTelefone(),pessoa.getEmail(),
+				pessoa.getSexo(),pessoa.getTipoSanguineo(),pessoa.getEscolaridade(),pessoa.getProfissao(),pessoa.getStatus(),pessoa.getFiliacaoMae(),
+				pessoa.getFiliacaoPai(),pessoa.getEstadoCivil(),pessoa.getOutro());
+		
 		this.matricula = matricula;
 		this.funcao = funcao;
 		this.salario = salario;
 		this.dataAdmissao = dataAdmissao;
 		this.dataDemisao = dataDemisao;
 		this.alocacao = alocacao;
-		
-		String nome, String cpf, String identidade, String identidadeOrgaoEmissor, Boolean identidade2Via,
-		String cep, String enderecoRua, String enderecoNr, String enderecoBairro, String enderecoCidade, String enderecoEstado,
-		String enderecoComplemento, Date dataNascimento, String naturalidade, byte[] foto, String telefone,
-		String email, char sexo, String tipoSanguineo, String escolaridade, String profissao, Boolean status,
-		String filiacaoMae, String filiacaoPai, String estadoCivil, String outro
-		
-		super.setNome(pessoa.getNome());
-		super.setCpf(pessoa.getCpf());
-		
+		this.pessoa = pessoa;
+	}
+
+	public Integer getIdFuncionario() {
+		return idFuncionario;
+	}
+
+	public void setIdFuncionario(Integer idFuncionario) {
+		this.idFuncionario = idFuncionario;
 	}
 
 	public String getMatricula() {
@@ -132,6 +122,12 @@ public class Funcionario extends Pessoa {
 		this.alocacao = alocacao;
 	}
 
-	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
 	
 }

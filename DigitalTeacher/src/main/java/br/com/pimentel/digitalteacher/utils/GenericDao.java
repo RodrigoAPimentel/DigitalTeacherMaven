@@ -1,8 +1,8 @@
 package br.com.pimentel.digitalteacher.utils;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Set;
-import java.lang.reflect.ParameterizedType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,7 +13,7 @@ import javax.validation.Validator;
 
 public abstract class GenericDao<T, PK> {
 
-	private final EntityManager entityManager;
+	protected final EntityManager entityManager;
 
 	private final EntityManagerFactory factory;
 
@@ -39,7 +39,7 @@ public abstract class GenericDao<T, PK> {
 
 	public Object executeQuery(String query, Object... params) {
 		Query createdQuery = this.entityManager.createQuery(query);
-
+		
 		for (int i = 0; i < params.length; i++) {
 			createdQuery.setParameter(i, params[i]);
 		}

@@ -11,9 +11,15 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+
 import br.com.pimentel.digitalteacher.daos.FuncionarioDao;
 import br.com.pimentel.digitalteacher.daos.PessoaDao;
+import br.com.pimentel.digitalteacher.daos.ProfessorDao;
+import br.com.pimentel.digitalteacher.models.Funcionario;
 import br.com.pimentel.digitalteacher.models.Pessoa;
+import br.com.pimentel.digitalteacher.models.Professor;
 import br.com.pimentel.digitalteacher.utils.DaoFactory;
 import br.com.pimentel.digitalteacher.utils.GenericDao;
 
@@ -24,7 +30,7 @@ public class Teste {
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 		
 		Date d1 = new Date();
-		d1 = formato.parse("16/08/1986");
+		d1 = formato.parse("01/01/2001");
 		
 		BufferedImage imagem = ImageIO.read(new File("C:\\RODRIGO\\PROGRAMAÇÃO\\TEXTURA\\foto.jpg"));
 		byte[] im = Util.getImgBytes(imagem);
@@ -54,9 +60,17 @@ public class Teste {
 //		p1DAO.save(p2);
 //		p1DAO.save(p3);
 //		p1DAO.save(p4);
-		p1DAO.deleteForPK("49858586507");
+//		p1DAO.deleteForPK("21774651920");
 //		p1DAO.findById("06775447433");
 //		System.out.println(p1DAO.findById("06175447433").toString());
+//		p1DAO.update(p3);
+		
+		
+		
+		List<Pessoa> lp = p1DAO.findStatus(true);		
+		for (Pessoa pessoa : lp) {
+			System.out.println(pessoa.toString());
+		}
 		
 //		List<Pessoa> lp = p1DAO.findAll();		
 //		for (Pessoa pessoa : lp) {
@@ -76,16 +90,17 @@ public class Teste {
 		
 		FuncionarioDao f1DAO = new FuncionarioDao();
 		
-		Funcionario f1 = new Funcionario("01234", "Secretario", 1998.00, d1, null, "Secretaria");
-		Funcionario f2 = new Funcionario("012345", "Auxiliar", 998.00, d1, null, "Cantina");
-//		Funcionario f3 = new Funcionario("012345", "Auxiliar", 998.00, d1, null, "Cantina", "061.754.474-33");
-		f2.setCpf("49858586507");
-		f2.setNome("Manezinho");
+		Funcionario f1 = new Funcionario("01234", "Secretario", 1998.00, d1, null, "Secretaria", p1);
+		Funcionario f2 = new Funcionario("012345", "Auxiliar", 998.00, d1, null, "Cantina", p2);
+//		f1DAO.save(f1);
+//		f1DAO.save(f2);
+//		f2.setCpf("49858586507");
+//		f2.setNome("Manezinho");
 //		f1DAO.save(f2);
 //		f1.setCpf("033.880.338-62");
 //		f1DAO.save(f3);
 //		System.out.println(f1DAO.findById("06175447433").toString());
-//		f1DAO.deleteForPK("49858586507");
+//		f1DAO.deleteForPK("06175447433");
 		
 //		f1.setCpf("01234567890");
 //		f1.setNome("Joazinho");
@@ -94,9 +109,6 @@ public class Teste {
 //		f1.setFuncao("Secreatrio");
 //		f1.getCpf();
 //		f1.setDataNascimento(d1);
-		
-	
-		
 //		f1DAO.save(f1);
 //		f1DAO.delete(f1);
 //		List<Funcionario> fa = f1DAO.findAll();
@@ -108,14 +120,24 @@ public class Teste {
 
 		
 		
+		ProfessorDao proDao = new ProfessorDao();
 		
-//		EmpresaDao e1DAO = new EmpresaDao();
-//		e1DAO.save(e1);
-		
-//		e1DAO.delete(e1);
+		String[] turmas = {"turma A", "Turma B"};
+		String[] disciplinas = {"Matematica Basica", "matematica Aplicada"};
 		
 		
-//		System.out.println(p1DAO.save(p1));
+		Professor pro1 = new Professor(turmas, disciplinas, true, f1);
+		
+//		proDao.save(pro1);
+		
+//		System.out.println(proDao.findById("06175447433").toString());
+		
+		
+		
+//		DaoFactory.entityManagerFactorInstance();
+		
+		
+		
 		
 	}
 
