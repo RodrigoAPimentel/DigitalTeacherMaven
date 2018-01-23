@@ -21,8 +21,6 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
-import br.com.pimentel.digitalteacher.teste.Documento;
-import br.com.pimentel.digitalteacher.teste.Endereco;
 import br.com.pimentel.digitalteacher.utils.BaseBean;
 
 @Entity

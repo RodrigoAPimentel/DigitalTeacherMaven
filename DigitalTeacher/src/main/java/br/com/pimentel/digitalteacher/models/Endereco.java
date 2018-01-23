@@ -1,4 +1,4 @@
-package br.com.pimentel.digitalteacher.teste;
+package br.com.pimentel.digitalteacher.models;
 
 import java.io.Serializable;
 

@@ -7,9 +7,9 @@ import br.com.pimentel.digitalteacher.daos.FuncionarioDAO;
 import br.com.pimentel.digitalteacher.daos.PessoaDAO;
 import br.com.pimentel.digitalteacher.daos.ProfessorDAO;
 
-public class DaoFactory {
+public class DAOFactory {
 	
-	private DaoFactory() { }
+	private DAOFactory() { }
 
 	///////////////////////////////////////////////////////////////////
 	// ENTITY MANAGER FACTORY

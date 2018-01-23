@@ -24,7 +24,7 @@ public abstract class GenericDAO<T, PK> {
 	///////////////////////////////////////////////////////////////////
 
 	public GenericDAO() {
-		this(DaoFactory.entityManagerFactorInstance());
+		this(DAOFactory.entityManagerFactorInstance());
 	}
 
 	public GenericDAO(EntityManagerFactory factory) {

@@ -17,10 +17,12 @@ import org.hibernate.criterion.Restrictions;
 import br.com.pimentel.digitalteacher.daos.FuncionarioDAO;
 import br.com.pimentel.digitalteacher.daos.PessoaDAO;
 import br.com.pimentel.digitalteacher.daos.ProfessorDAO;
+import br.com.pimentel.digitalteacher.models.Documento;
+import br.com.pimentel.digitalteacher.models.Endereco;
 import br.com.pimentel.digitalteacher.models.Funcionario;
 import br.com.pimentel.digitalteacher.models.Pessoa;
 import br.com.pimentel.digitalteacher.models.Professor;
-import br.com.pimentel.digitalteacher.utils.DaoFactory;
+import br.com.pimentel.digitalteacher.utils.DAOFactory;
 import br.com.pimentel.digitalteacher.utils.GenericDAO;
 
 public class Teste {
