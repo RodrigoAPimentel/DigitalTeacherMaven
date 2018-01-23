@@ -3,9 +3,9 @@ package br.com.pimentel.digitalteacher.utils;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.com.pimentel.digitalteacher.daos.FuncionarioDao;
-import br.com.pimentel.digitalteacher.daos.PessoaDao;
-import br.com.pimentel.digitalteacher.daos.ProfessorDao;
+import br.com.pimentel.digitalteacher.daos.FuncionarioDAO;
+import br.com.pimentel.digitalteacher.daos.PessoaDAO;
+import br.com.pimentel.digitalteacher.daos.ProfessorDAO;
 
 public class DaoFactory {
 	
@@ -27,31 +27,31 @@ public class DaoFactory {
 		return entityManagerFactoryInstance;
 	}
 	
-	private static PessoaDao pessoaDaoInstance;
+	private static PessoaDAO pessoaDaoInstance;
 
-	public static PessoaDao pessoaInstance() {
+	public static PessoaDAO pessoaInstance() {
 		if (pessoaDaoInstance == null) {
-			pessoaDaoInstance = new PessoaDao();
+			pessoaDaoInstance = new PessoaDAO();
 		}
 
 		return pessoaDaoInstance;
 	}
 	
-	private static FuncionarioDao funcionarioDaoInstance;
+	private static FuncionarioDAO funcionarioDaoInstance;
 
-	public static FuncionarioDao funcionarioInstance() {
+	public static FuncionarioDAO funcionarioInstance() {
 		if (funcionarioDaoInstance == null) {
-			funcionarioDaoInstance = new FuncionarioDao();
+			funcionarioDaoInstance = new FuncionarioDAO();
 		}
 
 		return funcionarioDaoInstance;
 	}
 	
-	private static ProfessorDao professorDaoInstance;
+	private static ProfessorDAO professorDaoInstance;
 
-	public static ProfessorDao professorDaoInstance() {
+	public static ProfessorDAO professorDaoInstance() {
 		if (professorDaoInstance == null) {
-			professorDaoInstance = new ProfessorDao();
+			professorDaoInstance = new ProfessorDAO();
 		}
 
 		return professorDaoInstance;

@@ -14,14 +14,14 @@ import javax.imageio.ImageIO;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-import br.com.pimentel.digitalteacher.daos.FuncionarioDao;
-import br.com.pimentel.digitalteacher.daos.PessoaDao;
-import br.com.pimentel.digitalteacher.daos.ProfessorDao;
+import br.com.pimentel.digitalteacher.daos.FuncionarioDAO;
+import br.com.pimentel.digitalteacher.daos.PessoaDAO;
+import br.com.pimentel.digitalteacher.daos.ProfessorDAO;
 import br.com.pimentel.digitalteacher.models.Funcionario;
 import br.com.pimentel.digitalteacher.models.Pessoa;
 import br.com.pimentel.digitalteacher.models.Professor;
 import br.com.pimentel.digitalteacher.utils.DaoFactory;
-import br.com.pimentel.digitalteacher.utils.GenericDao;
+import br.com.pimentel.digitalteacher.utils.GenericDAO;
 
 public class Teste {
 	
@@ -37,40 +37,44 @@ public class Teste {
 		BufferedImage imagem2 = ImageIO.read(new File("C:\\RODRIGO\\PROGRAMAÇÃO\\ICONE\\usuario2.png"));
 		byte[] im2 = Util.getImgBytes(imagem2);
 		
-		Pessoa p1 = new Pessoa( "Rodrigo Pimentel", "061.754.474-33", "2915851", "SSP/PB", false, "58.432-045", "Rua Antonio Jose Santiago", 
-				"115", "Dinamerica", "Campina Grande", "Paraiba", "Bloco S, Apt 302", d1, "Campina Grande-PB", 
-				im, "83988664318", "pimentelmsn@hotmail.com", 'M', "B+", "Superior Incompleto", "Gerente Comercial", true,
-				"M. de Lourdes a de A Pimentel", "Sebastião Porto Pimentel", "Casado", "");
-		Pessoa p2 = new Pessoa( "Rodrigo Pimentel", "217.746.519-20", "29158541", "SSP/PB", false,"58.432-045", "Rua Antonio Jose Santiago", 
-				"115", "Dinamerica", "Campina Grande", "Paraiba", "Bloco S, Apt 302", d1, "Campina Grande-PB", 
-				im, "83988664318", "pimentelmsn@hotmail.com", 'M', "B+", "Superior Incompleto", "Gerente Comercial", true,
-				"M. de Lourdes a de A Pimentel", "Sebastião Porto Pimentel", "Casado", "");
+		Documento doc1 = new Documento("061.754.474-88", "2915851", "SSP/PB", false, "12423424", "4564646567");
 		
-		Pessoa p3 = new Pessoa( "Rodrigo Pimentel", "033.880.338-62", "29158351", "SSP/PB", false, "58.432-045","Rua Antonio Jose Santiago", 
-				"115", "Dinamerica", "Campina Grande", "Paraiba", "Bloco S, Apt 302", d1, "Campina Grande-PB", 
-				im, "83988664318", "pimentelmsn@hotmail.com", 'M', "B+", "Superior Incompleto", "Gerente Comercial", true,
-				"M. de Lourdes a de A Pimentel", "Sebastião Porto Pimentel", "Casado", "");
+		Endereco end1 = new Endereco("58432-888", "Antonio Jose Santiago", "115", "Dinamerica", "Campina Grande", "Paraiba", 
+				"Bl S, Ap 302", "Brasil", "98866-4318", "3063-1021", "", "pimentelmsn@hotmail.com", null, "345353");
+		
+		Endereco end2 = new Endereco("58100-000", "Genuina Pessoa", "423", "Bela Vista", "Gurjão", "Paraiba", "", "Brasil", 
+				"3386-1051", "", "", "", "", "");
+		
+		List<Endereco> listEnd = new ArrayList();
+		listEnd.add(end1);
+		listEnd.add(end2);
+		
+		Pessoa p1 = new Pessoa(8,"Rodrigo de A P", d1, "Campina Grande", im, 'M', "B+", "Superior Incompleto", "Gerente", 
+				true, "Maria de Lourde A A Pimentel", "Sebatiao Porto Pimentel", "Casado", "", listEnd, doc1);
+		
+		
 		
 		Pessoa p4 = new Pessoa();
-		p4.setCpf("676.151.596-36");
+//		p4.setCpf("676.151.596-36");
 		p4.setNome("Joaozinho");
 		
-		PessoaDao p1DAO = new PessoaDao();
+		PessoaDAO p1DAO = new PessoaDAO();
 //		p1DAO.save(p1);
 //		p1DAO.save(p2);
 //		p1DAO.save(p3);
 //		p1DAO.save(p4);
-//		p1DAO.deleteForPK("21774651920");
-//		p1DAO.findById("06775447433");
-//		System.out.println(p1DAO.findById("06175447433").toString());
-//		p1DAO.update(p3);
+//		p1DAO.deleteForPK(1);
+//		p1DAO.delete(p1);
+//		p1DAO.findById("0675447433");
+//		System.out.println(p1DAO.findById(3).toString());
+//		p1DAO.update(p1);
 		
 		
 		
-		List<Pessoa> lp = p1DAO.findStatus(true);		
-		for (Pessoa pessoa : lp) {
-			System.out.println(pessoa.toString());
-		}
+//		List<Pessoa> lp = p1DAO.findStatus(true);		
+//		for (Pessoa pessoa : lp) {
+//			System.out.println(pessoa.toString());
+//		}
 		
 //		List<Pessoa> lp = p1DAO.findAll();		
 //		for (Pessoa pessoa : lp) {
@@ -88,10 +92,10 @@ public class Teste {
 //				"escolaabc@asdf.ghj.kl", "", "Joaozinho", true);
 		
 		
-		FuncionarioDao f1DAO = new FuncionarioDao();
+		FuncionarioDAO f1DAO = new FuncionarioDAO();
 		
 		Funcionario f1 = new Funcionario("01234", "Secretario", 1998.00, d1, null, "Secretaria", p1);
-		Funcionario f2 = new Funcionario("012345", "Auxiliar", 998.00, d1, null, "Cantina", p2);
+//		Funcionario f2 = new Funcionario("012345", "Auxiliar", 998.00, d1, null, "Cantina", p2);
 //		f1DAO.save(f1);
 //		f1DAO.save(f2);
 //		f2.setCpf("49858586507");
@@ -99,7 +103,7 @@ public class Teste {
 //		f1DAO.save(f2);
 //		f1.setCpf("033.880.338-62");
 //		f1DAO.save(f3);
-//		System.out.println(f1DAO.findById("06175447433").toString());
+//		System.out.println(f1DAO.findById(9).toString());
 //		f1DAO.deleteForPK("06175447433");
 		
 //		f1.setCpf("01234567890");
@@ -117,20 +121,22 @@ public class Teste {
 //			System.out.println(fa.toString());
 //		}
 		
-
 		
+		ProfessorDAO proDao = new ProfessorDAO();
 		
-		ProfessorDao proDao = new ProfessorDao();
+		List<String> turmas = new ArrayList();
+		turmas.add("turma A");
+		turmas.add("turma B");
 		
-		String[] turmas = {"turma A", "Turma B"};
-		String[] disciplinas = {"Matematica Basica", "matematica Aplicada"};
+		List<String> disciplinas = new ArrayList();
+		disciplinas.add("Matematica Basica");
+		disciplinas.add("matematica Aplicada");
 		
-		
-		Professor pro1 = new Professor(turmas, disciplinas, true, f1);
+		Professor pro1 = new Professor(null, turmas, disciplinas, true, f1);
 		
 //		proDao.save(pro1);
 		
-//		System.out.println(proDao.findById("06175447433").toString());
+//		System.out.println(proDao.findById(3).toString());
 		
 		
 		

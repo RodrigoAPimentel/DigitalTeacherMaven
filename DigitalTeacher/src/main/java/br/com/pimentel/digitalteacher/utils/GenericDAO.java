@@ -11,7 +11,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-public abstract class GenericDao<T, PK> {
+public abstract class GenericDAO<T, PK> {
 
 	protected final EntityManager entityManager;
 
@@ -23,11 +23,11 @@ public abstract class GenericDao<T, PK> {
 	// CONSTRUCTOR
 	///////////////////////////////////////////////////////////////////
 
-	public GenericDao() {
+	public GenericDAO() {
 		this(DaoFactory.entityManagerFactorInstance());
 	}
 
-	public GenericDao(EntityManagerFactory factory) {
+	public GenericDAO(EntityManagerFactory factory) {
 		this.factory = factory;
 		this.entityManager = factory.createEntityManager();
 		this.clazz = (Class<?>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];

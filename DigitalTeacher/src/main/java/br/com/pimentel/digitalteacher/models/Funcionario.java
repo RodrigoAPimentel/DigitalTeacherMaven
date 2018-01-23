@@ -51,11 +51,9 @@ public class Funcionario extends Pessoa implements Serializable{
 	
 	public Funcionario(String matricula, String funcao,	Double salario, Date dataAdmissao, Date dataDemisao, String alocacao, Pessoa pessoa) {
 		
-		super(pessoa.getNome(),pessoa.getCpf(),pessoa.getIdentidade(),pessoa.getIdentidadeOrgaoEmissor(),pessoa.getIdentidade2Via(),pessoa.getCep(),
-				pessoa.getEnderecoRua(),pessoa.getEnderecoNr(),pessoa.getEnderecoBairro(),pessoa.getEnderecoCidade(),pessoa.getEnderecoEstado(),
-				pessoa.getEnderecoComplemento(),pessoa.getDataNascimento(),pessoa.getNaturalidade(),pessoa.getFoto(),pessoa.getTelefone(),pessoa.getEmail(),
-				pessoa.getSexo(),pessoa.getTipoSanguineo(),pessoa.getEscolaridade(),pessoa.getProfissao(),pessoa.getStatus(),pessoa.getFiliacaoMae(),
-				pessoa.getFiliacaoPai(),pessoa.getEstadoCivil(),pessoa.getOutro());
+		super(null, pessoa.getNome(),pessoa.getDataNascimento(),pessoa.getNaturalidade(),pessoa.getFoto(),pessoa.getSexo(),pessoa.getTipoSanguineo(),
+				pessoa.getEscolaridade(),pessoa.getProfissao(),pessoa.getStatus(),pessoa.getFiliacaoMae(),pessoa.getFiliacaoPai(),pessoa.getEstadoCivil(),
+				pessoa.getOutro(), pessoa.getEndereco(), pessoa.getDocumentos());
 		
 		this.matricula = matricula;
 		this.funcao = funcao;

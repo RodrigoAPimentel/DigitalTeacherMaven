@@ -3,9 +3,9 @@ package br.com.pimentel.digitalteacher.daos;
 import java.util.List;
 
 import br.com.pimentel.digitalteacher.models.Pessoa;
-import br.com.pimentel.digitalteacher.utils.GenericDao;
+import br.com.pimentel.digitalteacher.utils.GenericDAO;
 
-public class PessoaDao extends GenericDao<Pessoa, String>{
+public class PessoaDAO extends GenericDAO<Pessoa, Integer>{
 	
 	@SuppressWarnings("unchecked")
 	public List<Pessoa> findStatus(Boolean status) {		
