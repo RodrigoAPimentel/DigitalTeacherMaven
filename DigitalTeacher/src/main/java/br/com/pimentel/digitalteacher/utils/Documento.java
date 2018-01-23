@@ -1,4 +1,4 @@
-package br.com.pimentel.digitalteacher.models;
+package br.com.pimentel.digitalteacher.utils;
 
 import java.io.Serializable;
 
@@ -11,7 +11,6 @@ import org.hibernate.validator.constraints.Length;
 
 import br.com.caelum.stella.bean.validation.CPF;
 import br.com.caelum.stella.bean.validation.TituloEleitoral;
-import br.com.pimentel.digitalteacher.utils.BaseBean;
 
 @Embeddable
 public class Documento extends BaseBean implements Serializable{

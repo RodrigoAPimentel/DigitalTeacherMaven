@@ -22,6 +22,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 import br.com.pimentel.digitalteacher.utils.BaseBean;
+import br.com.pimentel.digitalteacher.utils.Documento;
+import br.com.pimentel.digitalteacher.utils.Endereco;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

@@ -1,4 +1,4 @@
-package br.com.pimentel.digitalteacher.models;
+package br.com.pimentel.digitalteacher.utils;
 
 import java.io.Serializable;
 
@@ -7,8 +7,6 @@ import javax.persistence.Embeddable;
 import javax.validation.constraints.Email;
 
 import org.hibernate.validator.constraints.Length;
-
-import br.com.pimentel.digitalteacher.utils.BaseBean;
 
 @Embeddable
 public class Endereco extends BaseBean implements Serializable{
