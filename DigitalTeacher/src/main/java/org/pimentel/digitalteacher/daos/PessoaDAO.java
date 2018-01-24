@@ -1,11 +1,11 @@
-package br.com.pimentel.digitalteacher.daos;
+package org.pimentel.digitalteacher.daos;
 
 import java.util.List;
 
-import br.com.pimentel.digitalteacher.models.Pessoa;
-import br.com.pimentel.digitalteacher.utils.GenericDAO;
+import org.pimentel.digitalteacher.models.Pessoa;
+import org.pimentel.digitalteacher.utils.DAOGeneric;
 
-public class PessoaDAO extends GenericDAO<Pessoa, Integer>{
+public class PessoaDAO extends DAOGeneric<Pessoa, Integer>{
 	
 	@SuppressWarnings("unchecked")
 	public List<Pessoa> findStatus(Boolean status) {		

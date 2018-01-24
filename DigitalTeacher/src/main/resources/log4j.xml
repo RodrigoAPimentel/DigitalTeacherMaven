@@ -20,7 +20,7 @@
 		</layout>
 	</appender>
 
-	<logger name="br.com.pimentel">
+	<logger name="org.pimentel">
 		<level value="debug" />
 	</logger>
 	

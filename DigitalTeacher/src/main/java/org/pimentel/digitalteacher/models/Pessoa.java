@@ -1,4 +1,4 @@
-package br.com.pimentel.digitalteacher.models;
+package org.pimentel.digitalteacher.models;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,10 +20,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-
-import br.com.pimentel.digitalteacher.utils.BaseBean;
-import br.com.pimentel.digitalteacher.utils.Documento;
-import br.com.pimentel.digitalteacher.utils.Endereco;
+import org.pimentel.digitalteacher.utils.BaseBean;
+import org.pimentel.digitalteacher.utils.Documento;
+import org.pimentel.digitalteacher.utils.Endereco;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

@@ -1,8 +1,8 @@
-package br.com.pimentel.digitalteacher.teste;
+package org.pimentel.digitalteacher.teste;
 
 import java.io.Serializable;
 
-import br.com.pimentel.digitalteacher.utils.BaseBean;
+import org.pimentel.digitalteacher.utils.BaseBean;
 
 public class Configuracao extends BaseBean implements Serializable{
 

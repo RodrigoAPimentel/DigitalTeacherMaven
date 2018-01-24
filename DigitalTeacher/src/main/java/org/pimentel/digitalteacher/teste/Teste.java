@@ -1,4 +1,4 @@
-package br.com.pimentel.digitalteacher.teste;
+package org.pimentel.digitalteacher.teste;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -13,17 +13,16 @@ import javax.imageio.ImageIO;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-
-import br.com.pimentel.digitalteacher.daos.FuncionarioDAO;
-import br.com.pimentel.digitalteacher.daos.PessoaDAO;
-import br.com.pimentel.digitalteacher.daos.ProfessorDAO;
-import br.com.pimentel.digitalteacher.models.Funcionario;
-import br.com.pimentel.digitalteacher.models.Pessoa;
-import br.com.pimentel.digitalteacher.models.Professor;
-import br.com.pimentel.digitalteacher.utils.DAOFactory;
-import br.com.pimentel.digitalteacher.utils.Documento;
-import br.com.pimentel.digitalteacher.utils.Endereco;
-import br.com.pimentel.digitalteacher.utils.GenericDAO;
+import org.pimentel.digitalteacher.daos.FuncionarioDAO;
+import org.pimentel.digitalteacher.daos.PessoaDAO;
+import org.pimentel.digitalteacher.daos.ProfessorDAO;
+import org.pimentel.digitalteacher.models.Funcionario;
+import org.pimentel.digitalteacher.models.Pessoa;
+import org.pimentel.digitalteacher.models.Professor;
+import org.pimentel.digitalteacher.utils.DAOFactory;
+import org.pimentel.digitalteacher.utils.DAOGeneric;
+import org.pimentel.digitalteacher.utils.Documento;
+import org.pimentel.digitalteacher.utils.Endereco;
 
 public class Teste {
 	

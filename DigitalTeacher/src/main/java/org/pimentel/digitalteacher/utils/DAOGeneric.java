@@ -1,4 +1,4 @@
-package br.com.pimentel.digitalteacher.utils;
+package org.pimentel.digitalteacher.utils;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -11,7 +11,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-public abstract class GenericDAO<T, PK> {
+public abstract class DAOGeneric<T, PK> {
 
 	protected final EntityManager entityManager;
 
@@ -23,11 +23,11 @@ public abstract class GenericDAO<T, PK> {
 	// CONSTRUCTOR
 	///////////////////////////////////////////////////////////////////
 
-	public GenericDAO() {
+	public DAOGeneric() {
 		this(DAOFactory.entityManagerFactorInstance());
 	}
 
-	public GenericDAO(EntityManagerFactory factory) {
+	public DAOGeneric(EntityManagerFactory factory) {
 		this.factory = factory;
 		this.entityManager = factory.createEntityManager();
 		this.clazz = (Class<?>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];

@@ -1,11 +1,11 @@
-package br.com.pimentel.digitalteacher.utils;
+package org.pimentel.digitalteacher.utils;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.com.pimentel.digitalteacher.daos.FuncionarioDAO;
-import br.com.pimentel.digitalteacher.daos.PessoaDAO;
-import br.com.pimentel.digitalteacher.daos.ProfessorDAO;
+import org.pimentel.digitalteacher.daos.FuncionarioDAO;
+import org.pimentel.digitalteacher.daos.PessoaDAO;
+import org.pimentel.digitalteacher.daos.ProfessorDAO;
 
 public class DAOFactory {
 	

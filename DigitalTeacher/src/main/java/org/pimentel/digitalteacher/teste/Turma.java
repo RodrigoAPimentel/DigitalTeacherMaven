@@ -1,4 +1,4 @@
-package br.com.pimentel.digitalteacher.teste;
+package org.pimentel.digitalteacher.teste;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,9 +13,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-
-import br.com.pimentel.digitalteacher.models.Professor;
-import br.com.pimentel.digitalteacher.utils.BaseBean;
+import org.pimentel.digitalteacher.models.Professor;
+import org.pimentel.digitalteacher.utils.BaseBean;
 
 @Entity
 public class Turma extends BaseBean implements Serializable {
