@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -32,10 +35,11 @@ public class Turma extends BaseBean implements Serializable {
 	@Column(length = 21)
 	private String nomeTurma;
 	
-	@OneToMany
-	private List<Aluno> alunos;
 	
-	@OneToMany
+//	private List<Aluno> alunos;
+	
+	@ManyToMany
+	@JoinTable(name = "turma_professor", joinColumns = @JoinColumn(name = "turma_id"), inverseJoinColumns = @JoinColumn(name = "professor_id"))
 	private List<Professor> professores;
 	
 	@NotNull(message = "A SERIE não pode ser nulo")
@@ -55,21 +59,67 @@ public class Turma extends BaseBean implements Serializable {
 	@Length(max = 10, message = "A SALA não pode ter mais do que {max} caracteres")
 	@Column(length = 11)
 	private String sala;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	public Turma() {
 	}
 
+	public Turma(Integer idTurma, String nomeTurma, List<Professor> professores, String serie, String turno, String sala) {
+		super();
+		this.idTurma = idTurma;
+		this.nomeTurma = nomeTurma;
+		this.professores = professores;
+		this.serie = serie;
+		this.turno = turno;
+		this.sala = sala;
+	}
+
+	public Integer getIdTurma() {
+		return idTurma;
+	}
+
+	public void setIdTurma(Integer idTurma) {
+		this.idTurma = idTurma;
+	}
+
+	public String getNomeTurma() {
+		return nomeTurma;
+	}
+
+	public void setNomeTurma(String nomeTurma) {
+		this.nomeTurma = nomeTurma;
+	}
+
+	public List<Professor> getProfessores() {
+		return professores;
+	}
+
+	public void setProfessores(List<Professor> professores) {
+		this.professores = professores;
+	}
+
+	public String getSerie() {
+		return serie;
+	}
+
+	public void setSerie(String serie) {
+		this.serie = serie;
+	}
+
+	public String getTurno() {
+		return turno;
+	}
+
+	public void setTurno(String turno) {
+		this.turno = turno;
+	}
+
+	public String getSala() {
+		return sala;
+	}
+
+	public void setSala(String sala) {
+		this.sala = sala;
+	}
+
+	
 }

@@ -17,10 +17,7 @@ import org.hibernate.validator.constraints.Length;
 public class Funcionario extends Pessoa implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
-	@Column(length = 5, unique = true)
-	private Integer idFuncionario;
-	
+		
 	@NotNull(message = "A MATRICULA não pode ser nulo")
 	@NotBlank(message = "A MATRICULA não pode ser em branco")
 	@Length(max = 11, message = "O campo não pode ter mais do que {max} caracteres")
@@ -62,14 +59,6 @@ public class Funcionario extends Pessoa implements Serializable{
 		this.dataDemisao = dataDemisao;
 		this.alocacao = alocacao;
 		this.pessoa = pessoa;
-	}
-
-	public Integer getIdFuncionario() {
-		return idFuncionario;
-	}
-
-	public void setIdFuncionario(Integer idFuncionario) {
-		this.idFuncionario = idFuncionario;
 	}
 
 	public String getMatricula() {

@@ -125,15 +125,44 @@ public class Teste {
 		
 		ProfessorDAO proDao = new ProfessorDAO();
 		
-		List<String> turmas = new ArrayList();
-		turmas.add("turma A");
-		turmas.add("turma B");
+		List<Professor> professores;
+		List<Turma> turmas;
+		List<Turma> turmas2;
+		Professor pro1;
+		Professor pro2;
+		Turma tur1;
+		Turma tur2;
 		
 		List<String> disciplinas = new ArrayList();
 		disciplinas.add("Matematica Basica");
 		disciplinas.add("matematica Aplicada");
+
+		List<String> disciplinas2 = new ArrayList();
+		disciplinas2.add("Portugues Basico");
+		disciplinas2.add("Portugues Aplicado");
 		
-		Professor pro1 = new Professor(null, turmas, disciplinas, true, f1);
+		
+
+		pro1 = new Professor(turmas, disciplinas, true, f1);
+		pro2 = new Professor(turmas2, disciplinas2, true, f1);
+		
+		turmas = new ArrayList();
+		turmas.add(tur1);
+		turmas.add(tur2);
+		
+		
+		tur1 = new Turma(null, "turma A", professores, "7", "noite", "45");
+		tur2 = new Turma(null, "Turma B", professores, "5", "manha", "AB");
+		
+
+		
+		
+		
+		
+		
+		
+		
+
 		
 //		proDao.save(pro1);
 		
