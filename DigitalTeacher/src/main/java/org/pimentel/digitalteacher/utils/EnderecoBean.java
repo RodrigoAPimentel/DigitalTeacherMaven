@@ -9,7 +9,7 @@ import javax.validation.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
 @Embeddable
-public class Endereco extends BaseBean implements Serializable{
+public class EnderecoBean extends BaseBean implements Serializable{
 	
 	private static final long serialVersionUID = 4999140494858284162L;
 	
@@ -54,29 +54,7 @@ public class Endereco extends BaseBean implements Serializable{
 	@Column(length = 20)
 	private String caixaPostal;
 
-	public Endereco() {
-	}
-
-	public Endereco(@Length(max = 8, message = "O CEP não pode ter mais do que {max} caracteres") String cep,
-			String rua, String numero, String bairro, String cidade, String estado, String complemento, String pais,
-			@Length(max = 11, message = "O TELEFONE não pode ter mais do que {max} caracteres") String telefone1,
-			@Length(max = 11, message = "O TELEFONE não pode ter mais do que {max} caracteres") String telefone2,
-			@Length(max = 11, message = "O TELEFONE não pode ter mais do que {max} caracteres") String telefone3,
-			@Email String email1, @Email String email2, String caixaPostal) {
-		this.cep = cep.replaceAll("[^0-9]", "");
-		this.rua = rua;
-		this.numero = numero;
-		this.bairro = bairro;
-		this.cidade = cidade;
-		this.estado = estado;
-		this.complemento = complemento;
-		this.pais = pais;
-		this.telefone1 = telefone1.replaceAll("[^0-9]", "");
-		this.telefone2 = telefone2.replaceAll("[^0-9]", "");
-		this.telefone3 = telefone3.replaceAll("[^0-9]", "");
-		this.email1 = email1;
-		this.email2 = email2;
-		this.caixaPostal = caixaPostal;
+	public EnderecoBean() {
 	}
 
 	public String getCep() {

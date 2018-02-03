@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
@@ -21,17 +22,18 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.pimentel.digitalteacher.utils.BaseBean;
-import org.pimentel.digitalteacher.utils.Documento;
-import org.pimentel.digitalteacher.utils.Endereco;
+import org.pimentel.digitalteacher.utils.DocumentoBean;
+import org.pimentel.digitalteacher.utils.EnderecoBean;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Pessoa extends BaseBean implements Serializable {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class PessoaBean extends BaseBean implements Serializable {
 
 	private static final long serialVersionUID = -6890586650010394127L;
 
+	@TableGenerator(name = "VEHICLE_GEN", table = "ID_GEN", pkColumnName = "GEN_NAME", valueColumnName = "GEN_VAL", allocationSize = 1)
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "VEHICLE_GEN")
 	@Column(length = 5, unique = true)
 	private Integer idPessoa;
 		
@@ -69,38 +71,23 @@ public class Pessoa extends BaseBean implements Serializable {
 	
 	@Embedded
 	@ElementCollection
-	private List<Endereco> endereco;
+	private List<EnderecoBean> endereco;
 	
 	@Embedded
-	private Documento documentos;
+	private DocumentoBean documentos;
 
-	public Pessoa() {
+	public PessoaBean() {
 		super();
 	}
-
-	public Pessoa(Integer idPessoa,
-			@NotNull(message = "O NOME não pode ser nulo") @NotBlank(message = "O NOME não pode ser em branco") @Length(max = 70, message = "O NOME não pode ter mais do que {max} caracteres") String nome,
-			Date dataNascimento, String naturalidade, byte[] foto, char sexo, String tipoSanguineo, String escolaridade,
-			String profissao, Boolean status, String filiacaoMae, String filiacaoPai, String estadoCivil, String outro,
-			List<Endereco> endereco, Documento documentos) {
-		this.idPessoa = idPessoa;
-		this.nome = nome;
-		this.dataNascimento = dataNascimento;
-		this.naturalidade = naturalidade;
-		this.foto = foto;
-		this.sexo = sexo;
-		this.tipoSanguineo = tipoSanguineo;
-		this.escolaridade = escolaridade;
-		this.profissao = profissao;
-		this.status = status;
-		this.filiacaoMae = filiacaoMae;
-		this.filiacaoPai = filiacaoPai;
-		this.estadoCivil = estadoCivil;
-		this.outro = outro;
-		this.endereco = endereco;
-		this.documentos = documentos;
-	}
 	
+	public Integer getIdPessoa() {
+		return idPessoa;
+	}
+
+	public void setIdPessoa(Integer idPessoa) {
+		this.idPessoa = idPessoa;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -205,24 +192,20 @@ public class Pessoa extends BaseBean implements Serializable {
 		this.outro = outro;
 	}
 
-	public List<Endereco> getEndereco() {
+	public List<EnderecoBean> getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(List<Endereco> endereco) {
+	public void setEndereco(List<EnderecoBean> endereco) {
 		this.endereco = endereco;
 	}
 
-	public Documento getDocumentos() {
+	public DocumentoBean getDocumentos() {
 		return documentos;
 	}
 
-	public void setDocumentos(Documento documentos) {
+	public void setDocumentos(DocumentoBean documentos) {
 		this.documentos = documentos;
-	}
-
-	public Integer getIdPessoa() {
-		return idPessoa;
 	}
 	
 }

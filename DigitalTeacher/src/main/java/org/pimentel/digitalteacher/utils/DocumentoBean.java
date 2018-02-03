@@ -13,7 +13,7 @@ import br.com.caelum.stella.bean.validation.CPF;
 import br.com.caelum.stella.bean.validation.TituloEleitoral;
 
 @Embeddable
-public class Documento extends BaseBean implements Serializable{
+public class DocumentoBean extends BaseBean implements Serializable{
 	
 	private static final long serialVersionUID = -419238069448572979L;
 	
@@ -37,22 +37,9 @@ public class Documento extends BaseBean implements Serializable{
 	@Column(length = 20)
 	private String certificadoReservista;
 
-	public Documento() {
+	public DocumentoBean() {
 	}
 	
-	public Documento(
-			@NotNull(message = "O CPF não pode ser nulo") @NotBlank(message = "O CPF não pode ser em branco") @Length(max = 11, message = "O campo não pode ter mais do que {max} caracteres") String cpf,
-			String identidade, String identidadeOrgaoEmissor, Boolean identidade2Via,
-			@Length(max = 12, message = "O campo não pode ter mais do que {max} caracteres") String tituloEleitor,
-			String certificadoReservista) {
-		this.cpf = cpf.replaceAll("[^0-9]", "");
-		this.identidade = identidade.replaceAll("[^0-9]", "");
-		this.identidadeOrgaoEmissor = identidadeOrgaoEmissor;
-		this.identidade2Via = identidade2Via;
-		this.tituloEleitor = tituloEleitor.replaceAll("[^0-9]", "");
-		this.certificadoReservista = certificadoReservista.replaceAll("[^0-9]", "");
-	}
-
 	public String getCpf() {
 		return cpf;
 	}

@@ -5,24 +5,28 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-public class Funcionario extends Pessoa implements Serializable{
+public class FuncionarioBean extends PessoaBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 		
-	@NotNull(message = "A MATRICULA não pode ser nulo")
-	@NotBlank(message = "A MATRICULA não pode ser em branco")
-	@Length(max = 11, message = "O campo não pode ter mais do que {max} caracteres")
-	@Column(length = 20, unique = true)
-	private String matricula;
+	@TableGenerator(name = "MAT_GEN", table = "MATRICULA_GERADOR", pkColumnName = "GEN_NAME", valueColumnName = "GEN_VAL", allocationSize = 10)
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "MAT_GEN")
+//	@NotNull(message = "A MATRICULA não pode ser nulo")
+//	@NotBlank(message = "A MATRICULA não pode ser em branco")
+//	@Length(max = 11, message = "O campo não pode ter mais do que {max} caracteres")
+//	@Column(length = 20, unique = true)
+	private Integer matricula;
 	@NotNull(message = "A FUNÇÃO não pode ser nulo")
 	@NotBlank(message = "A FUNÇÃO não pode ser em branco")
 	@Column(length = 15)
@@ -39,33 +43,15 @@ public class Funcionario extends Pessoa implements Serializable{
 	@Column(length = 20)
 	private String alocacao;
 	
-	@Transient
-	private Pessoa pessoa;
-	
-	public Funcionario() {
+	public FuncionarioBean() {
 		super();
 	}
-	
-	public Funcionario(String matricula, String funcao,	Double salario, Date dataAdmissao, Date dataDemisao, String alocacao, Pessoa pessoa) {
-		
-		super(null, pessoa.getNome(),pessoa.getDataNascimento(),pessoa.getNaturalidade(),pessoa.getFoto(),pessoa.getSexo(),pessoa.getTipoSanguineo(),
-				pessoa.getEscolaridade(),pessoa.getProfissao(),pessoa.getStatus(),pessoa.getFiliacaoMae(),pessoa.getFiliacaoPai(),pessoa.getEstadoCivil(),
-				pessoa.getOutro(), pessoa.getEndereco(), pessoa.getDocumentos());
-		
-		this.matricula = matricula;
-		this.funcao = funcao;
-		this.salario = salario;
-		this.dataAdmissao = dataAdmissao;
-		this.dataDemisao = dataDemisao;
-		this.alocacao = alocacao;
-		this.pessoa = pessoa;
-	}
 
-	public String getMatricula() {
+	public Integer getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(String matricula) {
+	public void setMatricula(Integer matricula) {
 		this.matricula = matricula;
 	}
 
@@ -108,13 +94,4 @@ public class Funcionario extends Pessoa implements Serializable{
 	public void setAlocacao(String alocacao) {
 		this.alocacao = alocacao;
 	}
-
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
-
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
-	}
-	
 }

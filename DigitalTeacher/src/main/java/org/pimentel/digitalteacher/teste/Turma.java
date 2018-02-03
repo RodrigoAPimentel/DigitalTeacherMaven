@@ -11,12 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-import org.pimentel.digitalteacher.models.Professor;
+import org.pimentel.digitalteacher.models.ProfessorBean;
 import org.pimentel.digitalteacher.utils.BaseBean;
 
 @Entity
@@ -39,8 +38,10 @@ public class Turma extends BaseBean implements Serializable {
 //	private List<Aluno> alunos;
 	
 	@ManyToMany
-	@JoinTable(name = "turma_professor", joinColumns = @JoinColumn(name = "turma_id"), inverseJoinColumns = @JoinColumn(name = "professor_id"))
-	private List<Professor> professores;
+	@JoinTable(name = "turma_professor", 
+				joinColumns = @JoinColumn(name = "turma_id"), 
+				inverseJoinColumns = @JoinColumn(name = "professor_id"))
+	private List<ProfessorBean> professores;
 	
 	@NotNull(message = "A SERIE não pode ser nulo")
 	@NotBlank(message = "A SERIE não pode ser em branco")
@@ -63,9 +64,9 @@ public class Turma extends BaseBean implements Serializable {
 	public Turma() {
 	}
 
-	public Turma(Integer idTurma, String nomeTurma, List<Professor> professores, String serie, String turno, String sala) {
+	public Turma(String nomeTurma, List<ProfessorBean> professores, String serie, String turno, String sala) {
 		super();
-		this.idTurma = idTurma;
+		
 		this.nomeTurma = nomeTurma;
 		this.professores = professores;
 		this.serie = serie;
@@ -89,11 +90,11 @@ public class Turma extends BaseBean implements Serializable {
 		this.nomeTurma = nomeTurma;
 	}
 
-	public List<Professor> getProfessores() {
+	public List<ProfessorBean> getProfessores() {
 		return professores;
 	}
 
-	public void setProfessores(List<Professor> professores) {
+	public void setProfessores(List<ProfessorBean> professores) {
 		this.professores = professores;
 	}
 

@@ -5,6 +5,7 @@
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 	
 	<persistence-unit name="DigitalTeacherPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
