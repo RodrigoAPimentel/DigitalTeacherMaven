@@ -13,7 +13,7 @@ import br.com.caelum.stella.bean.validation.CPF;
 import br.com.caelum.stella.bean.validation.TituloEleitoral;
 
 @Embeddable
-public class DocumentoBean extends BaseBean implements Serializable{
+public class Documento extends BaseBean implements Serializable{
 	
 	private static final long serialVersionUID = -419238069448572979L;
 	
@@ -37,7 +37,7 @@ public class DocumentoBean extends BaseBean implements Serializable{
 	@Column(length = 20)
 	private String certificadoReservista;
 
-	public DocumentoBean() {
+	public Documento() {
 	}
 	
 	public String getCpf() {

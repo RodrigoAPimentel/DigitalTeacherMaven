@@ -9,7 +9,7 @@ import javax.validation.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
 @Embeddable
-public class EnderecoBean extends BaseBean implements Serializable{
+public class Endereco extends BaseBean implements Serializable{
 	
 	private static final long serialVersionUID = 4999140494858284162L;
 	
@@ -54,7 +54,7 @@ public class EnderecoBean extends BaseBean implements Serializable{
 	@Column(length = 20)
 	private String caixaPostal;
 
-	public EnderecoBean() {
+	public Endereco() {
 	}
 
 	public String getCep() {

@@ -11,12 +11,13 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import org.pimentel.digitalteacher.daos.FuncionarioBeanDAO;
-import org.pimentel.digitalteacher.daos.ProfessorBeanDAO;
-import org.pimentel.digitalteacher.models.FuncionarioBean;
-import org.pimentel.digitalteacher.models.ProfessorBean;
-import org.pimentel.digitalteacher.utils.DocumentoBean;
-import org.pimentel.digitalteacher.utils.EnderecoBean;
+import org.pimentel.digitalteacher.daos.FuncionarioDAO;
+import org.pimentel.digitalteacher.daos.ProfessorDAO;
+import org.pimentel.digitalteacher.models.Funcionario;
+import org.pimentel.digitalteacher.models.Professor;
+import org.pimentel.digitalteacher.utils.DAOFactory;
+import org.pimentel.digitalteacher.utils.Documento;
+import org.pimentel.digitalteacher.utils.Endereco;
 
 public class Teste2 {
 
@@ -51,7 +52,7 @@ public class Teste2 {
 		BufferedImage imagem2 = ImageIO.read(new File("C:\\RODRIGO\\PROGRAMAÇÃO\\ICONE\\usuario2.png"));
 		byte[] im2 = Util.getImgBytes(imagem2);		
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		DocumentoBean doc1 = new DocumentoBean();
+		Documento doc1 = new Documento();
 		doc1.setCpf("061.754.474-88");
 		doc1.setIdentidade("2915851");
 		doc1.setCertificadoReservista("12423424");
@@ -59,7 +60,7 @@ public class Teste2 {
 		doc1.setIdentidadeOrgaoEmissor("SSP/PB");
 		doc1.setTituloEleitor("4564646567");
 /*******************************************************************************************************************************************/
-		DocumentoBean doc2 = new DocumentoBean();
+		Documento doc2 = new Documento();
 		doc2.setCpf("697.531.187-08");
 		doc2.setIdentidade("098765");
 		doc2.setCertificadoReservista("0000000");
@@ -67,7 +68,7 @@ public class Teste2 {
 		doc2.setIdentidadeOrgaoEmissor("SSDS/PB");
 		doc2.setTituloEleitor("55555557");		
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		EnderecoBean end1 = new EnderecoBean();
+		Endereco end1 = new Endereco();
 		end1.setBairro("Dinamerica");
 		end1.setCaixaPostal("345353");
 		end1.setCep("58432-888");
@@ -83,7 +84,7 @@ public class Teste2 {
 		end1.setTelefone2("3063-1021");
 		end1.setTelefone3("");
 /*******************************************************************************************************************************************/
-		EnderecoBean end2 = new EnderecoBean();
+		Endereco end2 = new Endereco();
 		end2.setBairro("Bela Vista");
 		end2.setCaixaPostal("");
 		end2.setCep("58100-000");
@@ -99,7 +100,7 @@ public class Teste2 {
 		end2.setTelefone2("");
 		end2.setTelefone3("");
 /*******************************************************************************************************************************************/
-		EnderecoBean end3 = new EnderecoBean();
+		Endereco end3 = new Endereco();
 		end3.setBairro("Donatelo");
 		end3.setCaixaPostal(null);
 		end3.setCep("60123-567");
@@ -115,23 +116,23 @@ public class Teste2 {
 		end3.setTelefone2("7777-9999");
 		end3.setTelefone3("1234-5678");
 /*******************************************************************************************************************************************/
-		List<EnderecoBean> listEnd1 = new ArrayList();
+		List<Endereco> listEnd1 = new ArrayList();
 		listEnd1.add(end1);
 /*******************************************************************************************************************************************/
-		List<EnderecoBean> listEnd2 = new ArrayList();
+		List<Endereco> listEnd2 = new ArrayList();
 		listEnd2.add(end2);
 /*******************************************************************************************************************************************/
-		List<EnderecoBean> listEnd3 = new ArrayList();
+		List<Endereco> listEnd3 = new ArrayList();
 		listEnd3.add(end1);
 		listEnd3.add(end2);
 		listEnd3.add(end3);
 /*******************************************************************************************************************************************/
-		List<EnderecoBean> listEnd4 = new ArrayList();
+		List<Endereco> listEnd4 = new ArrayList();
 /*******************************************************************************************************************************************/
-		List<EnderecoBean> listEnd5 = new ArrayList();
+		List<Endereco> listEnd5 = new ArrayList();
 		listEnd5.add(end3);
 /*******************************************************************************************************************************************/
-		List<EnderecoBean> listEnd6 = new ArrayList();
+		List<Endereco> listEnd6 = new ArrayList();
 		listEnd6.add(end1);
 		listEnd6.add(end2);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -171,12 +172,12 @@ public class Teste2 {
 /*******************************************************************************************************************************************/
 //		PessoaBeanDAO p1DAO = new PessoaBeanDAO();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		FuncionarioBean f1 = new FuncionarioBean();
+		Funcionario f1 = new Funcionario();
 		f1.setAlocacao("Administração");
 		f1.setDataAdmissao(d1);
 		f1.setDataDemisao(null);
 		f1.setFuncao("Diretor");
-//		f1.setMatricula("0123");
+		f1.setMatricula("0123");
 //		f1.setPessoa(p1);
 		f1.setSalario(1.500);
 		
@@ -197,7 +198,7 @@ public class Teste2 {
 		f1.setStatus(true);
 		f1.setTipoSanguineo("B+");
 /*******************************************************************************************************************************************/
-		FuncionarioBean f2 = new FuncionarioBean();
+		Funcionario f2 = new Funcionario();
 		f2.setAlocacao("Professores");
 		f2.setDataAdmissao(d3);
 		f2.setDataDemisao(null);
@@ -206,9 +207,9 @@ public class Teste2 {
 //		f2.setPessoa(p2);
 		f2.setSalario(1.050);
 /*******************************************************************************************************************************************/
-		FuncionarioBeanDAO f1DAO = new FuncionarioBeanDAO();
+		FuncionarioDAO f1DAO = DAOFactory.funcionarioInstance();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		ProfessorBean pro1 = new ProfessorBean();
+		Professor pro1 = new Professor();
 		pro1.setDedicacaoExclusiva(true);
 		pro1.setDisciplinas(disciplinas);
 //		pro1.setFuncionario(f2);
@@ -239,7 +240,7 @@ public class Teste2 {
 		pro1.setStatus(true);
 		pro1.setTipoSanguineo("B+");
 /*******************************************************************************************************************************************/
-		ProfessorBeanDAO pro1DAO = new ProfessorBeanDAO();
+		ProfessorDAO pro1DAO = new ProfessorDAO();
 		
 /*
  * ******************************************************************************************************************************************
@@ -249,17 +250,19 @@ public class Teste2 {
 
 //		p1DAO.save(p1);
 
+		
+		
 		f1DAO.save(f1);
 
 //		pro1DAO.save(pro1);
 
-//		System.out.println(pro1DAO.findById(1).toString());
+//		System.out.println(f1DAO.findById(3).toString());
 
 //		p1.setIdPessoa(1);
 
 //		p1DAO.update(p1);
 
-//p1DAO.deleteForPK(2);
+//f1DAO.deleteForPK(3);
 
 
 

@@ -3,8 +3,8 @@ package org.pimentel.digitalteacher.utils;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.pimentel.digitalteacher.daos.FuncionarioBeanDAO;
-import org.pimentel.digitalteacher.daos.ProfessorBeanDAO;
+import org.pimentel.digitalteacher.daos.FuncionarioDAO;
+import org.pimentel.digitalteacher.daos.ProfessorDAO;
 
 public class DAOFactory {
 	
@@ -36,21 +36,21 @@ public class DAOFactory {
 //		return pessoaDaoInstance;
 //	}
 	
-	private static FuncionarioBeanDAO funcionarioDaoInstance;
+	private static FuncionarioDAO funcionarioDaoInstance;
 
-	public static FuncionarioBeanDAO funcionarioInstance() {
+	public static FuncionarioDAO funcionarioInstance() {
 		if (funcionarioDaoInstance == null) {
-			funcionarioDaoInstance = new FuncionarioBeanDAO();
+			funcionarioDaoInstance = new FuncionarioDAO();
 		}
 
 		return funcionarioDaoInstance;
 	}
 	
-	private static ProfessorBeanDAO professorDaoInstance;
+	private static ProfessorDAO professorDaoInstance;
 
-	public static ProfessorBeanDAO professorDaoInstance() {
+	public static ProfessorDAO professorDaoInstance() {
 		if (professorDaoInstance == null) {
-			professorDaoInstance = new ProfessorBeanDAO();
+			professorDaoInstance = new ProfessorDAO();
 		}
 
 		return professorDaoInstance;

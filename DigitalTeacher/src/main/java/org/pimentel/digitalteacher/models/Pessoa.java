@@ -22,18 +22,18 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.pimentel.digitalteacher.utils.BaseBean;
-import org.pimentel.digitalteacher.utils.DocumentoBean;
-import org.pimentel.digitalteacher.utils.EnderecoBean;
+import org.pimentel.digitalteacher.utils.Documento;
+import org.pimentel.digitalteacher.utils.Endereco;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class PessoaBean extends BaseBean implements Serializable {
+public abstract class Pessoa extends BaseBean implements Serializable {
 
 	private static final long serialVersionUID = -6890586650010394127L;
 
-	@TableGenerator(name = "VEHICLE_GEN", table = "ID_GEN", pkColumnName = "GEN_NAME", valueColumnName = "GEN_VAL", allocationSize = 1)
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "VEHICLE_GEN")
+	@TableGenerator(name = "PESSOA_GER_SEQ", table = "GER_SEQ_IDPESSOA", pkColumnName = "GER_NOME", valueColumnName = "GER_VALOR", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "PESSOA_GER_SEQ")
 	@Column(length = 5, unique = true)
 	private Integer idPessoa;
 		
@@ -71,14 +71,19 @@ public abstract class PessoaBean extends BaseBean implements Serializable {
 	
 	@Embedded
 	@ElementCollection
-	private List<EnderecoBean> endereco;
+	private List<Endereco> endereco;
 	
 	@Embedded
-	private DocumentoBean documentos;
+	private Documento documentos;
 
-	public PessoaBean() {
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+
+	public Pessoa() {
 		super();
 	}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	
 	
 	public Integer getIdPessoa() {
 		return idPessoa;
@@ -192,19 +197,19 @@ public abstract class PessoaBean extends BaseBean implements Serializable {
 		this.outro = outro;
 	}
 
-	public List<EnderecoBean> getEndereco() {
+	public List<Endereco> getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(List<EnderecoBean> endereco) {
+	public void setEndereco(List<Endereco> endereco) {
 		this.endereco = endereco;
 	}
 
-	public DocumentoBean getDocumentos() {
+	public Documento getDocumentos() {
 		return documentos;
 	}
 
-	public void setDocumentos(DocumentoBean documentos) {
+	public void setDocumentos(Documento documentos) {
 		this.documentos = documentos;
 	}
 	

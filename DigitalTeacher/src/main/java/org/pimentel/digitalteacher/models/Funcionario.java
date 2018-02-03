@@ -5,9 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
@@ -16,17 +13,15 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-public class FuncionarioBean extends PessoaBean implements Serializable{
+public class Funcionario extends Pessoa implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 		
-	@TableGenerator(name = "MAT_GEN", table = "MATRICULA_GERADOR", pkColumnName = "GEN_NAME", valueColumnName = "GEN_VAL", allocationSize = 10)
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "MAT_GEN")
-//	@NotNull(message = "A MATRICULA não pode ser nulo")
-//	@NotBlank(message = "A MATRICULA não pode ser em branco")
-//	@Length(max = 11, message = "O campo não pode ter mais do que {max} caracteres")
-//	@Column(length = 20, unique = true)
-	private Integer matricula;
+	@NotNull(message = "A MATRICULA não pode ser nulo")
+	@NotBlank(message = "A MATRICULA não pode ser em branco")
+	@Length(max = 11, message = "O campo não pode ter mais do que {max} caracteres")
+	@Column(length = 20, unique = true)
+	private String matricula;
 	@NotNull(message = "A FUNÇÃO não pode ser nulo")
 	@NotBlank(message = "A FUNÇÃO não pode ser em branco")
 	@Column(length = 15)
@@ -43,15 +38,15 @@ public class FuncionarioBean extends PessoaBean implements Serializable{
 	@Column(length = 20)
 	private String alocacao;
 	
-	public FuncionarioBean() {
+	public Funcionario() {
 		super();
 	}
 
-	public Integer getMatricula() {
+	public String getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(Integer matricula) {
+	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
 

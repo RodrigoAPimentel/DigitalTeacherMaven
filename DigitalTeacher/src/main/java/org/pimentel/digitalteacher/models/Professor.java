@@ -10,7 +10,7 @@ import javax.persistence.ManyToMany;
 import org.pimentel.digitalteacher.teste.Turma;
 
 @Entity
-public class ProfessorBean extends FuncionarioBean implements Serializable{
+public class Professor extends Funcionario implements Serializable{
 
 	private static final long serialVersionUID = 3049864645251880989L;
 	
@@ -22,7 +22,7 @@ public class ProfessorBean extends FuncionarioBean implements Serializable{
 	
 	private Boolean dedicacaoExclusiva;
 	
-	public ProfessorBean() {
+	public Professor() {
 		super();
 	}
 

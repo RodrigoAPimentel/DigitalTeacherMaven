@@ -15,7 +15,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-import org.pimentel.digitalteacher.models.ProfessorBean;
+import org.pimentel.digitalteacher.models.Professor;
 import org.pimentel.digitalteacher.utils.BaseBean;
 
 @Entity
@@ -41,7 +41,7 @@ public class Turma extends BaseBean implements Serializable {
 	@JoinTable(name = "turma_professor", 
 				joinColumns = @JoinColumn(name = "turma_id"), 
 				inverseJoinColumns = @JoinColumn(name = "professor_id"))
-	private List<ProfessorBean> professores;
+	private List<Professor> professores;
 	
 	@NotNull(message = "A SERIE não pode ser nulo")
 	@NotBlank(message = "A SERIE não pode ser em branco")
@@ -64,7 +64,7 @@ public class Turma extends BaseBean implements Serializable {
 	public Turma() {
 	}
 
-	public Turma(String nomeTurma, List<ProfessorBean> professores, String serie, String turno, String sala) {
+	public Turma(String nomeTurma, List<Professor> professores, String serie, String turno, String sala) {
 		super();
 		
 		this.nomeTurma = nomeTurma;
@@ -90,11 +90,11 @@ public class Turma extends BaseBean implements Serializable {
 		this.nomeTurma = nomeTurma;
 	}
 
-	public List<ProfessorBean> getProfessores() {
+	public List<Professor> getProfessores() {
 		return professores;
 	}
 
-	public void setProfessores(List<ProfessorBean> professores) {
+	public void setProfessores(List<Professor> professores) {
 		this.professores = professores;
 	}
 
