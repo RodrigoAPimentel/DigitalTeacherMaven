@@ -1,4 +1,4 @@
-package org.pimentel.digitalteacher.models;
+package org.pimentel.digitalteacher.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -21,9 +21,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-import org.pimentel.digitalteacher.utils.BaseBean;
-import org.pimentel.digitalteacher.utils.Documento;
-import org.pimentel.digitalteacher.utils.Endereco;
+import org.pimentel.digitalteacher.util.BaseBean;
+import org.pimentel.digitalteacher.util.Documento;
+import org.pimentel.digitalteacher.util.Endereco;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

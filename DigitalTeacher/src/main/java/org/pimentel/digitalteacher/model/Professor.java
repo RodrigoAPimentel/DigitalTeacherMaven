@@ -1,4 +1,4 @@
-package org.pimentel.digitalteacher.models;
+package org.pimentel.digitalteacher.model;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,8 +6,6 @@ import java.util.List;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-
-import org.pimentel.digitalteacher.teste.Turma;
 
 @Entity
 public class Professor extends Funcionario implements Serializable{
@@ -22,9 +20,13 @@ public class Professor extends Funcionario implements Serializable{
 	
 	private Boolean dedicacaoExclusiva;
 	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+
 	public Professor() {
 		super();
 	}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
 	public List<Turma> getTurmas() {
 		return turmas;

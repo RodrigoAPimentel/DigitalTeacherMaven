@@ -11,13 +11,17 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import org.pimentel.digitalteacher.daos.FuncionarioDAO;
-import org.pimentel.digitalteacher.daos.ProfessorDAO;
-import org.pimentel.digitalteacher.models.Funcionario;
-import org.pimentel.digitalteacher.models.Professor;
-import org.pimentel.digitalteacher.utils.DAOFactory;
-import org.pimentel.digitalteacher.utils.Documento;
-import org.pimentel.digitalteacher.utils.Endereco;
+import org.pimentel.digitalteacher.dao.AlunoDAO;
+import org.pimentel.digitalteacher.dao.FuncionarioDAO;
+import org.pimentel.digitalteacher.dao.ProfessorDAO;
+import org.pimentel.digitalteacher.dao.TurmaDAO;
+import org.pimentel.digitalteacher.model.Aluno;
+import org.pimentel.digitalteacher.model.Funcionario;
+import org.pimentel.digitalteacher.model.Professor;
+import org.pimentel.digitalteacher.model.Turma;
+import org.pimentel.digitalteacher.util.DAOFactory;
+import org.pimentel.digitalteacher.util.Documento;
+import org.pimentel.digitalteacher.util.Endereco;
 
 public class Teste2 {
 
@@ -203,9 +207,25 @@ public class Teste2 {
 		f2.setDataAdmissao(d3);
 		f2.setDataDemisao(null);
 		f2.setFuncao("Professor Matematica");
-//		f2.setMatricula("5678");
+		f2.setMatricula("5678");
 //		f2.setPessoa(p2);
 		f2.setSalario(1.050);
+		
+		f2.setDataNascimento(d1);
+		f2.setDocumentos(doc2);
+		f2.setEndereco(listEnd5);
+		f2.setEscolaridade("Ensino Medio");
+		f2.setEstadoCivil("Solteiro");
+		f2.setFiliacaoMae("Joaninha Silva");
+		f2.setFiliacaoPai("Ze das Uvas");
+		f2.setFoto(im2);
+		f2.setNaturalidade("Coxixola");
+		f2.setNome("Zezinho das Uvas Filho");
+		f2.setOutro("");
+		f2.setProfissao("Carpinteiro");
+		f2.setSexo('M');
+		f2.setStatus(true);
+		f2.setTipoSanguineo("AB+");
 /*******************************************************************************************************************************************/
 		FuncionarioDAO f1DAO = DAOFactory.funcionarioInstance();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -219,7 +239,7 @@ public class Teste2 {
 		pro1.setDataAdmissao(d1);
 		pro1.setDataDemisao(null);
 		pro1.setFuncao("Diretor");
-//		pro1.setMatricula("01343");
+		pro1.setMatricula("01343");
 //		pro1.setPessoa(p1);
 		pro1.setSalario(1.500);
 		
@@ -240,7 +260,66 @@ public class Teste2 {
 		pro1.setStatus(true);
 		pro1.setTipoSanguineo("B+");
 /*******************************************************************************************************************************************/
+		Professor pro2 = new Professor();
+		pro2.setDedicacaoExclusiva(false);
+		pro2.setDisciplinas(disciplinas2);
+//		pro2.setFuncionario(f2);
+		pro2.setTurmas(null);
+		
+		pro2.setAlocacao("Professores");
+		pro2.setDataAdmissao(d3);
+		pro2.setDataDemisao(null);
+		pro2.setFuncao("Professor Matematica");
+		pro2.setMatricula("5678");
+//		pro2.setPessoa(p2);
+		pro2.setSalario(1.050);
+		
+		pro2.setDataNascimento(d1);
+		pro2.setDocumentos(doc2);
+		pro2.setEndereco(listEnd5);
+		pro2.setEscolaridade("Ensino Medio");
+		pro2.setEstadoCivil("Solteiro");
+		pro2.setFiliacaoMae("Joaninha Silva");
+		pro2.setFiliacaoPai("Ze das Uvas");
+		pro2.setFoto(im2);
+		pro2.setNaturalidade("Coxixola");
+		pro2.setNome("Zezinho das Uvas Filho");
+		pro2.setOutro("");
+		pro2.setProfissao("Carpinteiro");
+		pro2.setSexo('M');
+		pro2.setStatus(true);
+		pro2.setTipoSanguineo("AB+");
+/*******************************************************************************************************************************************/
 		ProfessorDAO pro1DAO = new ProfessorDAO();
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		Aluno al1 = new Aluno();
+		al1.setDataDesligamento(null);
+		al1.setDataMatricula(d1);
+		al1.setMatricula("503");
+		al1.setNotas(null);
+		al1.setSerie("7");
+		al1.setStatusMatricula(true);
+		al1.setTurno("noite");
+//		al1.setTurma(null);
+		
+		al1.setDataNascimento(d1);
+		al1.setDocumentos(doc2);
+		al1.setEndereco(listEnd5);
+		al1.setEscolaridade("Ensino Medio");
+		al1.setEstadoCivil("Solteiro");
+		al1.setFiliacaoMae("Joaninha Silva");
+		al1.setFiliacaoPai("Ze das Uvas");
+		al1.setFoto(im2);
+		al1.setNaturalidade("Coxixola");
+		al1.setNome("Zezinho das Uvas Filho");
+		al1.setOutro("");
+		al1.setProfissao("Carpinteiro");
+		al1.setSexo('M');
+		al1.setStatus(true);
+		al1.setTipoSanguineo("AB+");
+/*******************************************************************************************************************************************/
+		AlunoDAO alDAO = DAOFactory.alunoDaoInstance();
+		
 		
 /*
  * ******************************************************************************************************************************************
@@ -252,9 +331,10 @@ public class Teste2 {
 
 		
 		
-		f1DAO.save(f1);
+//		f1DAO.save(f1);
 
 //		pro1DAO.save(pro1);
+//		pro1DAO.save(pro2);
 
 //		System.out.println(f1DAO.findById(3).toString());
 
@@ -264,12 +344,33 @@ public class Teste2 {
 
 //f1DAO.deleteForPK(3);
 
+		Professor pa1 = new Professor();
+		pa1.setIdPessoa(1);
+		Professor pa2 = new Professor();
+		pa2.setIdPessoa(2);
+		
+		List<Professor> proList1 = new ArrayList();
+		proList1.add(pa1);
+		proList1.add(pa2);
+		
+		Turma tur1 = new Turma();
+		tur1.setNomeTurma("Turma A");
+//		tur1.setProfessores(proList1);
+		tur1.setSala("56");
+		tur1.setSerie("7");
+		tur1.setTurno("Manhã");
 
 
+		TurmaDAO turDAO = DAOFactory.turmaDaoInstance();
+		
+//		turDAO.save(tur1);
 
 
+//		System.out.println(turDAO.findById(1).toString());
 
+		al1.setTurma(tur1);
 
+		alDAO.save(al1);
 
 
 	}

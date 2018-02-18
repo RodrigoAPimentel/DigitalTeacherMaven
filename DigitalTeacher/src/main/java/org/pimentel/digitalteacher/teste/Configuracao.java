@@ -2,7 +2,7 @@ package org.pimentel.digitalteacher.teste;
 
 import java.io.Serializable;
 
-import org.pimentel.digitalteacher.utils.BaseBean;
+import org.pimentel.digitalteacher.util.BaseBean;
 
 public class Configuracao extends BaseBean implements Serializable{
 

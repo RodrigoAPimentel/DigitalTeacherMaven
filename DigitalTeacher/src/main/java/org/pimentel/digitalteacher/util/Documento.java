@@ -1,4 +1,4 @@
-package org.pimentel.digitalteacher.utils;
+package org.pimentel.digitalteacher.util;
 
 import java.io.Serializable;
 

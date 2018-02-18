@@ -1,4 +1,4 @@
-package org.pimentel.digitalteacher.models;
+package org.pimentel.digitalteacher.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -24,7 +24,7 @@ public class Funcionario extends Pessoa implements Serializable{
 	private String matricula;
 	@NotNull(message = "A FUNÇÃO não pode ser nulo")
 	@NotBlank(message = "A FUNÇÃO não pode ser em branco")
-	@Column(length = 15)
+	@Column(length = 35)
 	private String funcao;
 	@Column(length = 10)
 	private Double salario;
@@ -37,10 +37,14 @@ public class Funcionario extends Pessoa implements Serializable{
 	private Date dataDemisao;
 	@Column(length = 20)
 	private String alocacao;
-	
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+
 	public Funcionario() {
 		super();
 	}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
 	public String getMatricula() {
 		return matricula;

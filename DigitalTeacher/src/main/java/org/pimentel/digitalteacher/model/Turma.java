@@ -1,8 +1,9 @@
-package org.pimentel.digitalteacher.teste;
+package org.pimentel.digitalteacher.model;
 
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,12 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-import org.pimentel.digitalteacher.models.Professor;
-import org.pimentel.digitalteacher.utils.BaseBean;
+import org.pimentel.digitalteacher.model.Professor;
+import org.pimentel.digitalteacher.util.BaseBean;
 
 @Entity
 public class Turma extends BaseBean implements Serializable {
@@ -34,8 +36,8 @@ public class Turma extends BaseBean implements Serializable {
 	@Column(length = 21)
 	private String nomeTurma;
 	
-	
-//	private List<Aluno> alunos;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy= "turma")
+	private List<Aluno> alunos;
 	
 	@ManyToMany
 	@JoinTable(name = "turma_professor", 
@@ -61,18 +63,12 @@ public class Turma extends BaseBean implements Serializable {
 	@Column(length = 11)
 	private String sala;
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+
 	public Turma() {
 	}
 
-	public Turma(String nomeTurma, List<Professor> professores, String serie, String turno, String sala) {
-		super();
-		
-		this.nomeTurma = nomeTurma;
-		this.professores = professores;
-		this.serie = serie;
-		this.turno = turno;
-		this.sala = sala;
-	}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
 	public Integer getIdTurma() {
 		return idTurma;
@@ -121,6 +117,5 @@ public class Turma extends BaseBean implements Serializable {
 	public void setSala(String sala) {
 		this.sala = sala;
 	}
-
 	
 }

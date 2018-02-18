@@ -1,9 +1,9 @@
-package org.pimentel.digitalteacher.daos;
+package org.pimentel.digitalteacher.dao;
 
 import java.util.List;
 
-import org.pimentel.digitalteacher.models.Pessoa;
-import org.pimentel.digitalteacher.utils.DAOGeneric;
+import org.pimentel.digitalteacher.model.Pessoa;
+import org.pimentel.digitalteacher.util.DAOGeneric;
 
 public class PessoaDAO extends DAOGeneric<Pessoa, Integer>{
 	

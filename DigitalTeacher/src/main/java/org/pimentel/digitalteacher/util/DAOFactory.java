@@ -1,10 +1,12 @@
-package org.pimentel.digitalteacher.utils;
+package org.pimentel.digitalteacher.util;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.pimentel.digitalteacher.daos.FuncionarioDAO;
-import org.pimentel.digitalteacher.daos.ProfessorDAO;
+import org.pimentel.digitalteacher.dao.AlunoDAO;
+import org.pimentel.digitalteacher.dao.FuncionarioDAO;
+import org.pimentel.digitalteacher.dao.ProfessorDAO;
+import org.pimentel.digitalteacher.dao.TurmaDAO;
 
 public class DAOFactory {
 	
@@ -55,5 +57,27 @@ public class DAOFactory {
 
 		return professorDaoInstance;
 	}
+	
+	private static TurmaDAO turmaDaoInstance;
+
+	public static TurmaDAO turmaDaoInstance() {
+		if (turmaDaoInstance == null) {
+			turmaDaoInstance = new TurmaDAO();
+		}
+
+		return turmaDaoInstance;
+	}
+	
+	private static AlunoDAO alunoDaoInstance;
+
+	public static AlunoDAO alunoDaoInstance() {
+		if (alunoDaoInstance == null) {
+			alunoDaoInstance = new AlunoDAO();
+		}
+
+		return alunoDaoInstance;
+	}
+	
+	
 
 }
