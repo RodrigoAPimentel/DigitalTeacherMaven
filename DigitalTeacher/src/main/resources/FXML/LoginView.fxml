@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="387.0" prefWidth="999.0" styleClass="background"
+	stylesheets="@../CSS/LoginView_CSS.css" xmlns="http://javafx.com/javafx/9.0.1"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pimentel.digitalteacher.controller.LoginViewController">
+	<children>
+		<HBox alignment="CENTER" fillHeight="false" layoutX="91.0"
+			layoutY="14.0" spacing="10.0" AnchorPane.leftAnchor="50.0"
+			AnchorPane.topAnchor="50.0">
+			<children>
+				<SplitPane prefHeight="202.0" prefWidth="46.0"
+					styleClass="splitpane-esquerdo" stylesheets="@../CSS/LoginView_CSS.css">
+					<items>
+						<Separator orientation="VERTICAL" prefHeight="200.0"
+							valignment="BASELINE" />
+					</items>
+				</SplitPane>
+				<SplitPane styleClass="splitpane-centro" stylesheets="@../CSS/LoginView_CSS.css">
+					<items>
+						<VBox prefHeight="275.0" prefWidth="352.0" spacing="20.0"
+							styleClass="vbox-login" stylesheets="@../CSS/LoginView_CSS.css">
+							<children>
+								<ImageView fitHeight="85.0" fitWidth="88.0"
+									nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@../IMAGENS/ICONES/cadeado_login.png" />
+									</image>
+									<VBox.margin>
+										<Insets left="130.0" />
+									</VBox.margin>
+								</ImageView>
+								<VBox alignment="CENTER" spacing="30.0">
+									<children>
+										<VBox alignment="CENTER" spacing="30.0">
+											<children>
+												<HBox alignment="CENTER" spacing="10.0">
+													<children>
+														<ImageView fitHeight="35.0" fitWidth="35.0"
+															pickOnBounds="true" preserveRatio="true">
+															<image>
+																<Image url="@../IMAGENS/ICONES/usuario.png" />
+															</image>
+														</ImageView>
+														<JFXTextField fx:id="txtFieldUsuario"
+															focusColor="ORANGE" prefHeight="35.0" prefWidth="250.0"
+															promptText="Usuario" styleClass="fontes-textfield"
+															stylesheets="@../CSS/LoginView_CSS.css" unFocusColor="BLACK" />
+													</children>
+												</HBox>
+												<HBox alignment="CENTER" spacing="10.0">
+													<children>
+														<ImageView fitHeight="35.0" fitWidth="35.0"
+															pickOnBounds="true" preserveRatio="true">
+															<image>
+																<Image url="@../IMAGENS/ICONES/password.png" />
+															</image>
+														</ImageView>
+														<JFXPasswordField fx:id="passwordFieldSenha"
+															focusColor="ORANGE" prefHeight="35.0" prefWidth="250.0"
+															promptText="Senha" styleClass="fontes-textfield"
+															stylesheets="@../CSS/LoginView_CSS.css" unFocusColor="BLACK" />
+													</children>
+												</HBox>
+											</children>
+										</VBox>
+										<HBox alignment="CENTER" spacing="30.0">
+											<children>
+												<JFXButton fx:id="btnEntrar" buttonType="RAISED"
+													defaultButton="true" prefHeight="35.0" prefWidth="100.0"
+													ripplerFill="GREEN" styleClass="botao-entrar" stylesheets="@../CSS/LoginView_CSS.css"
+													text="ENTRAR" textAlignment="CENTER">
+													<cursor>
+														<Cursor fx:constant="HAND" />
+													</cursor>
+												</JFXButton>
+												<JFXButton fx:id="btnSair" buttonType="RAISED"
+													onAction="#onActionSair" prefHeight="35.0" prefWidth="80.0"
+													ripplerFill="RED" styleClass="botao-sair" stylesheets="@../CSS/LoginView_CSS.css"
+													text="SAIR" textAlignment="CENTER">
+													<cursor>
+														<Cursor fx:constant="HAND" />
+													</cursor>
+												</JFXButton>
+											</children>
+										</HBox>
+									</children>
+								</VBox>
+							</children>
+						</VBox>
+					</items>
+				</SplitPane>
+				<SplitPane styleClass="splitpane-direito" stylesheets="@../CSS/LoginView_CSS.css">
+					<items>
+						<ImageView fitHeight="214.0" fitWidth="525.0"
+							pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@../IMAGENS/ICONES/Logo%20Teacher%20Digital-01.png" />
+							</image>
+						</ImageView>
+					</items>
+				</SplitPane>
+			</children>
+		</HBox>
+	</children>
+</AnchorPane>

@@ -1,0 +1,63 @@
+.background {
+		-fx-background-color: transparent ;
+}
+
+.vbox-login {
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.botao-entrar {
+	-fx-border-color: green   ;
+	-fx-padding: 5;
+	-fx-border-insets: 5;
+	-fx-border-width: 2;
+	-fx-border-radius: 5;
+	-fx-border-style: solid;
+	
+	-fx-font-family: "Times New Roman";
+	-fx-font-style: italic;
+	-fx-font-weight: bold;
+	-fx-font-size: 14;
+	-fx-alignment: center;
+}
+
+.botao-sair {
+	-fx-border-color: red    ;
+	-fx-padding: 5;
+	-fx-border-insets: 5;
+	-fx-border-width: 2;
+	-fx-border-radius: 5;
+	-fx-border-style: solid;
+	
+	-fx-font-family: "Times New Roman";
+	-fx-font-style: italic;
+	-fx-font-weight: bold;
+	-fx-font-size: 14;
+	-fx-alignment: center;
+}
+
+.fontes-textfield {
+	-fx-font-family: "Times New Roman";
+	-fx-font-style: italic;
+	-fx-font-weight: bold;
+	-fx-font-size: 14;
+	-fx-alignment: center;
+}
+
+.splitpane-esquerdo {
+	-fx-background-radius: 10 0 0 10;
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1), 55, 0.0, 0, 1);
+	-fx-background-color: radial-gradient(center 50% 50% , radius 300px , #f0ffff, #1e90ff);
+}
+
+.splitpane-centro{
+	-fx-background-radius: 10 10 10 10;
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1), 55, 0.0, 0, 1);
+	-fx-background-color: radial-gradient(center 50% 50% , radius 250px , #1e90ff, #f0ffff);
+}
+
+.splitpane-direito {
+	-fx-background-radius: 0 10 10 0;
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1), 55, 0.0, 0, 1);
+	-fx-background-color: radial-gradient(center 50% 50% , radius 500px , #f0ffff, #1e90ff);
+}
