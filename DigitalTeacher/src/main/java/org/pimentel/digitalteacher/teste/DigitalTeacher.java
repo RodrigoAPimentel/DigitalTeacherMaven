@@ -2,9 +2,12 @@ package org.pimentel.digitalteacher.teste;
 
 import java.io.IOException;
 
+import org.pimentel.digitalteacher.controller.ConfiguracaoInicialController;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -18,13 +21,15 @@ public class DigitalTeacher extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
+		ConfiguracaoInicialController configuracaoInicialController = new ConfiguracaoInicialController();
 		
-		primaryStage.setTitle("Digital Teacher");
+		primaryStage.setTitle(configuracaoInicialController.carregaConfiguracaoInicial().getNome());
+		primaryStage.getIcons().add(new Image(configuracaoInicialController.carregaConfiguracaoInicial().getIconeURL()));
 		primaryStage.setResizable(false);
 		
 		primaryStage.initStyle(StageStyle.TRANSPARENT);
 		
-		mostrarJanela("LoginView", "LoginView_CSS");
+		mostrarJanela("LoginView", "LoginView_CSS");		
 	}
 
 	public void mostrarJanela(String nomeDaJanela, String arquivoCSS) throws IOException {

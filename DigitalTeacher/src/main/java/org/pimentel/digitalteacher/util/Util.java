@@ -1,4 +1,4 @@
-package org.pimentel.digitalteacher.teste;
+package org.pimentel.digitalteacher.util;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -7,13 +7,21 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.Inet4Address;
 import java.net.InetAddress;
+import java.net.InterfaceAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -24,7 +32,18 @@ import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.MaskFormatter;
 
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.Node;
+import org.dom4j.io.SAXReader;
+import org.pimentel.digitalteacher.dao.ConfiguracaoInicialDAO;
+import org.pimentel.digitalteacher.model.ConfiguracaoInicial;
+import org.pimentel.digitalteacher.teste.Teste2;
+
 public class Util {
+	
+	private static ArrayList<String> dadosPersistenceXML = new ArrayList<String>();
 
 	public static MaskFormatter mascaraDeTextoCPF() throws ParseException {
 		MaskFormatter cpf = new MaskFormatter("##/##/####");
@@ -180,24 +199,83 @@ public class Util {
 		}.start();
 	}
 
-	public static String getHostIP() throws UnknownHostException {
-		String a = InetAddress.getLocalHost().getHostName() + " [" + InetAddress.getLocalHost().getHostAddress() + "]";
-		return a;
+	@SuppressWarnings("static-access")
+	public static ArrayList<String> getInformacoesRede() throws UnknownHostException, SocketException {		
+		ArrayList<String> informacoesRede = new ArrayList<String>();		
+		InetAddress localHost = Inet4Address.getLocalHost();
+		NetworkInterface networkInterface = NetworkInterface.getByInetAddress(localHost);		
+		String tipoConexao = null;		
+		if (networkInterface.getName().contains("w")) {
+			tipoConexao= "Sem fio";
+		}else {
+			tipoConexao= "Cabo";
+		}
+		List<InterfaceAddress> lista = networkInterface.getInterfaceAddresses();
+		informacoesRede.add("Tipo de conexão:" + tipoConexao);
+		informacoesRede.add("Interface:" + networkInterface.getDisplayName());
+		informacoesRede.add("IP:" + lista.get(0).getAddress().getHostAddress());
+		informacoesRede.add("Host:" + lista.get(0).getAddress().getLocalHost().getHostName());
+		return informacoesRede;
 	}
-
+	
+	public static boolean verificarConexãoInternet()  {
+		Boolean status = false;
+		InetAddress endereco = null;
+		try {
+			endereco = InetAddress.getByName("8.8.8.8");
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		int timeout = 1000;
+		try {
+			if (endereco.isReachable(timeout)) {
+				status = true;
+			}
+		} catch (IOException e) {
+		}
+		return status;
+	}
+	
+	private static Element auxiliarLerPersistenceXML() {
+		SAXReader reader = new SAXReader();
+		Document doc = null;
+		try {
+			doc = reader.read(Teste2.class.getResource("/META-INF/persistence.xml"));
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		Element root = doc.getRootElement();
+		return root;
+	}
+	
+	private static ArrayList<String> auxiliarLerPersistenceXML2(Element element){		
+	    for (int i = 0, size = element.nodeCount(); i < size; i++) {
+	        Node node = element.node(i);	        
+	        if (node.valueOf("@value").length() >3) {
+	        	dadosPersistenceXML.add(node.valueOf("@name") + "=" + node.valueOf("@value"));
+			}
+	        if (node instanceof Element) {
+	        	auxiliarLerPersistenceXML2((Element) node);	            
+	        }
+	    }
+	    return dadosPersistenceXML;
+	}
+	
+	public static ArrayList<String> dadosPersistenceXML(){
+		ArrayList<String> arrayAux = new ArrayList<String>();		
+		Element element = auxiliarLerPersistenceXML();		
+		arrayAux = auxiliarLerPersistenceXML2(element);		
+		return arrayAux;		
+	}
+	
+	
 //	public static String getServidorIP() throws IOException {
 //		String url = ConfiguracaoBD.getURL();
 //		String ip = url.substring(url.indexOf("/") + 2, url.lastIndexOf(":"));
 //		String porta = url.substring(url.lastIndexOf(":") + 1, url.lastIndexOf("/"));
 //		return ip + ":" + porta;
-//	}
-//
-//	public static String getServidorStatus() throws ClassNotFoundException, SQLException, IOException {
-//		Boolean status = ConexaoBD.testaConexao();
-//		if (status) {
-//			return "ON";
-//		}
-//		return "OFF";
 //	}
 
 }

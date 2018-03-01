@@ -9,7 +9,7 @@
 .botao-entrar {
 	-fx-border-color: green   ;
 	-fx-padding: 5;
-	-fx-border-insets: 5;
+	-fx-border-insets: 0;
 	-fx-border-width: 2;
 	-fx-border-radius: 5;
 	-fx-border-style: solid;
@@ -18,13 +18,21 @@
 	-fx-font-style: italic;
 	-fx-font-weight: bold;
 	-fx-font-size: 14;
-	-fx-alignment: center;
+	-fx-alignment: center;	
+	
+	-fx-cursor: hand ;
+}
+
+.botao-entrar-effect:hover{
+	-fx-background-color: green  ;
+	-fx-text-fill: white ;
+	-fx-background-radius: 5 5 5 5;
 }
 
 .botao-sair {
 	-fx-border-color: red    ;
 	-fx-padding: 5;
-	-fx-border-insets: 5;
+	-fx-border-insets: 0;
 	-fx-border-width: 2;
 	-fx-border-radius: 5;
 	-fx-border-style: solid;
@@ -34,6 +42,24 @@
 	-fx-font-weight: bold;
 	-fx-font-size: 14;
 	-fx-alignment: center;
+	
+	-fx-cursor: hand ;
+}
+
+.botao-sair-effect:hover{
+	-fx-background-color: red ;
+	-fx-text-fill: white ;
+	-fx-background-radius: 5 5 5 5;
+}
+
+.zoom:hover {
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+    -fx-scale-z: 1.2;
+}
+
+.cursor-mao:hover{
+	-fx-cursor: hand ;
 }
 
 .fontes-textfield {
@@ -44,20 +70,25 @@
 	-fx-alignment: center;
 }
 
-.splitpane-esquerdo {
+.pane-esquerdo {
 	-fx-background-radius: 10 0 0 10;
 	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1), 55, 0.0, 0, 1);
 	-fx-background-color: radial-gradient(center 50% 50% , radius 300px , #f0ffff, #1e90ff);
 }
 
-.splitpane-centro{
+.pane-centro{
 	-fx-background-radius: 10 10 10 10;
 	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1), 55, 0.0, 0, 1);
 	-fx-background-color: radial-gradient(center 50% 50% , radius 250px , #1e90ff, #f0ffff);
 }
 
-.splitpane-direito {
+.pane-direito {
 	-fx-background-radius: 0 10 10 0;
 	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1), 55, 0.0, 0, 1);
-	-fx-background-color: radial-gradient(center 50% 50% , radius 500px , #f0ffff, #1e90ff);
+	-fx-background-color: radial-gradient(center 50% 50% , radius 500px , #f0ffff, #1e90ff);	
+}
+
+.splitpane-sobre{
+	/*-fx-background-color: transparent ;*/
+	-fx-opacity: 0.1;
 }
