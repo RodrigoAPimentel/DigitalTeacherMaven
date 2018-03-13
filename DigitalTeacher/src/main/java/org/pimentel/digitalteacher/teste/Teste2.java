@@ -1,10 +1,8 @@
 package org.pimentel.digitalteacher.teste;
 
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.InterfaceAddress;
@@ -19,40 +17,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
-
 import javax.imageio.ImageIO;
-import javax.persistence.Persistence;
-
-import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
-import org.hibernate.dialect.Dialect;
-import org.hibernate.engine.internal.TwoPhaseLoad;
 import org.junit.Test;
 import org.pimentel.digitalteacher.controller.UsuarioController;
 import org.pimentel.digitalteacher.dao.AlunoDAO;
-import org.pimentel.digitalteacher.dao.ConfiguracaoInicialDAO;
-import org.pimentel.digitalteacher.dao.FuncionarioDAO;
-import org.pimentel.digitalteacher.dao.ProfessorDAO;
-import org.pimentel.digitalteacher.dao.TurmaDAO;
-import org.pimentel.digitalteacher.dao.UsuarioDAO;
+import org.pimentel.digitalteacher.dao.DAOFactory;
 import org.pimentel.digitalteacher.model.Aluno;
-import org.pimentel.digitalteacher.model.ConfiguracaoInicial;
-import org.pimentel.digitalteacher.model.Funcionario;
-import org.pimentel.digitalteacher.model.Professor;
-import org.pimentel.digitalteacher.model.Turma;
-import org.pimentel.digitalteacher.util.DAOFactory;
 import org.pimentel.digitalteacher.util.Documento;
 import org.pimentel.digitalteacher.util.Endereco;
 import org.pimentel.digitalteacher.util.Util;
-
-import javafx.scene.image.Image;
 
 
 
@@ -660,7 +639,7 @@ public class Teste2 {
 		    byte[] ipAddr = addr.getAddress();
 		    String hostname = addr.getHostName();
 		    System.out.println("Nome do Computador completo: " + hostname);
-		    InetAddress localHost = Inet4Address.getLocalHost();
+		    InetAddress localHost = InetAddress.getLocalHost();
 		    NetworkInterface networkInterface = NetworkInterface.getByInetAddress(localHost);
 		    System.out.println("Placa: " + networkInterface.getDisplayName());
 		    try

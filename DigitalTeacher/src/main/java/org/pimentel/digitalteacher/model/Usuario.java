@@ -1,4 +1,4 @@
-package org.pimentel.digitalteacher.teste;
+package org.pimentel.digitalteacher.model;
 
 import java.io.Serializable;
 
@@ -12,7 +12,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-import org.pimentel.digitalteacher.model.Pessoa;
 
 @Entity
 public class Usuario implements Serializable{

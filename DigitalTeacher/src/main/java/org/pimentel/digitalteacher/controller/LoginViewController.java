@@ -7,16 +7,20 @@ import java.net.UnknownHostException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
+import org.pimentel.digitalteacher.teste.StageController;
+import org.pimentel.digitalteacher.util.ShakeTransition;
 import org.pimentel.digitalteacher.util.Util;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.validation.RequiredFieldValidator;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,13 +30,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 public class LoginViewController implements Initializable {	
-	
+
+	@FXML private AnchorPane AnchorPanePrincipal;
 	@FXML private Pane PaneLogin;
 	@FXML private JFXTextField txtFieldUsuario;
 	@FXML private JFXTextField txtVerSenha;
@@ -70,8 +77,13 @@ public class LoginViewController implements Initializable {
 	}
 
 	@FXML
-	void onEntrar(ActionEvent event) {
-//		usuariocontroller.logar(, senha)
+	void onEntrar(ActionEvent event) throws IOException {
+		Boolean logar = usuariocontroller.logar(txtFieldUsuario.getText(), passSenha.getText());
+		if (logar) {
+			StageController.instance(null).loadNewStage("MainView");			 
+		} else {
+			new ShakeTransition(PaneLogin).setDelayTime(Duration.ZERO).setDuration(Duration.millis(1000)).play();
+		}
 	}
 
 	@FXML
@@ -149,13 +161,13 @@ public class LoginViewController implements Initializable {
 	}
 
 	private void carregarInfoSobre() {
-		lblAnoCorrente.setText(Integer.toString(GregorianCalendar.getInstance().get(Calendar.YEAR)));		
+		lblAnoCorrente.setText(Integer.toString(Calendar.getInstance().get(Calendar.YEAR)));		
 		lblNomeAplicativo.setText(configuracaoInicialController.carregaConfiguracaoInicial().getNome());
 		lblVersao.setText(configuracaoInicialController.carregaConfiguracaoInicial().getVersao());
 		lblSerial.setText(configuracaoInicialController.carregaConfiguracaoInicial().getSerial());
 		imIcone.setImage(new Image(configuracaoInicialController.carregaConfiguracaoInicial().getIconeURL()));		
 	}
-	
+
 	private void verificarBD() throws ClassNotFoundException, SQLException, IOException {
 		if (!(configuracaoInicialController.testaConexaoBD())) {
 			txtFieldUsuario.setEditable(false);
@@ -168,21 +180,51 @@ public class LoginViewController implements Initializable {
 			imAlerta.setImage(new Image("/IMAGENS/ICONES/alertRED.png"));			
 		} 
 	}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
+	private void validacao() {
+		RequiredFieldValidator validatorUsuario = new RequiredFieldValidator();
+		RequiredFieldValidator validatorSenha = new RequiredFieldValidator();
+		validatorUsuario.setMessage("USUARIO EM BRANCO");		
+		validatorSenha.setMessage("SENHA EM BRANCO");
+		
+		txtFieldUsuario.getValidators().add(validatorUsuario);
+		passSenha.getValidators().add(validatorSenha);
+		
+		txtFieldUsuario.focusedProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> arg0, Boolean arg1, Boolean arg2) {
+				if (!arg2) {
+					txtFieldUsuario.validate();
+				}				
+			}
+		});
+		passSenha.focusedProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> arg0, Boolean arg1, Boolean arg2) {
+				if (!arg2) {
+					passSenha.validate();
+				}				
+			}
+		});
+	}
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {	
+		
+	
+		
 		configuracaoInicialController = new ConfiguracaoInicialController();
 		usuariocontroller = new UsuarioController();
 		imBanner.setImage(new Image(configuracaoInicialController.carregaConfiguracaoInicial().getBannerURL()));
 		try {
+			validacao();
 			carregarIconesPanelEsquerdo();
 			carregarInfoRede();
 			carregarInfoSobre();
 			verificarBD();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {			
 			e.printStackTrace();
 		}
 		panels = stackPane.getChildren();

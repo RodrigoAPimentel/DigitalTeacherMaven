@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" fillHeight="false" prefWidth="120.0" spacing="20.0" styleClass="background" stylesheets="@../../CSS/HBoxDrawer.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pimentel.digitalteacher.controller.HBoxDrawerSairController">
+	<children>
+		<VBox fx:id="vboxLogoff" alignment="CENTER" onMouseClicked="#clickedVboxLogoff" styleClass="botao-controle" stylesheets="@../../CSS/HBoxDrawer.css">
+			<children>
+				<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@../../IMAGENS/ICONES/logoff.png" />
+					</image>
+				</ImageView>
+				<Label text="Logoff">
+					<font>
+						<Font name="Times New Roman Bold Italic" size="8.0" />
+					</font>
+				</Label>
+			</children>
+		</VBox>
+		<VBox fx:id="vboxSair" alignment="CENTER" onMouseClicked="#clickedVboxSair" styleClass="botao-controle" stylesheets="@../../CSS/HBoxDrawer.css">
+			<children>
+				<ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@../../IMAGENS/ICONES/shutdown.png" />
+					</image>
+				</ImageView>
+				<Label text="Sair">
+					<font>
+						<Font name="Times New Roman Bold Italic" size="8.0" />
+					</font>
+				</Label>
+			</children>
+		</VBox>
+	</children>
+</HBox>

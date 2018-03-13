@@ -1,12 +1,7 @@
-package org.pimentel.digitalteacher.util;
+package org.pimentel.digitalteacher.dao;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
-import org.pimentel.digitalteacher.dao.AlunoDAO;
-import org.pimentel.digitalteacher.dao.FuncionarioDAO;
-import org.pimentel.digitalteacher.dao.ProfessorDAO;
-import org.pimentel.digitalteacher.dao.TurmaDAO;
 
 public class DAOFactory {
 	

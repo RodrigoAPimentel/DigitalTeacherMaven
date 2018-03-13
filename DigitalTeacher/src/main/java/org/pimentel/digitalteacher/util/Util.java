@@ -1,21 +1,19 @@
 package org.pimentel.digitalteacher.util;
 
+import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.UnknownHostException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,9 +35,11 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
-import org.pimentel.digitalteacher.dao.ConfiguracaoInicialDAO;
-import org.pimentel.digitalteacher.model.ConfiguracaoInicial;
 import org.pimentel.digitalteacher.teste.Teste2;
+
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 public class Util {
 	
@@ -202,7 +202,7 @@ public class Util {
 	@SuppressWarnings("static-access")
 	public static ArrayList<String> getInformacoesRede() throws UnknownHostException, SocketException {		
 		ArrayList<String> informacoesRede = new ArrayList<String>();		
-		InetAddress localHost = Inet4Address.getLocalHost();
+		InetAddress localHost = InetAddress.getLocalHost();
 		NetworkInterface networkInterface = NetworkInterface.getByInetAddress(localHost);		
 		String tipoConexao = null;		
 		if (networkInterface.getName().contains("w")) {
@@ -214,7 +214,8 @@ public class Util {
 		informacoesRede.add("Tipo de conexão:" + tipoConexao);
 		informacoesRede.add("Interface:" + networkInterface.getDisplayName());
 		informacoesRede.add("IP:" + lista.get(0).getAddress().getHostAddress());
-		informacoesRede.add("Host:" + lista.get(0).getAddress().getLocalHost().getHostName());
+		lista.get(0).getAddress();
+		informacoesRede.add("Host:" + InetAddress.getLocalHost().getHostName());
 		return informacoesRede;
 	}
 	
@@ -270,6 +271,23 @@ public class Util {
 		return arrayAux;		
 	}
 	
+	public static void janelaMaximizada(Stage stage){
+		Screen screen = Screen.getPrimary();
+		Rectangle2D bounds = screen.getVisualBounds();
+
+		stage.setX(bounds.getMinX());
+		stage.setY(bounds.getMinY());
+		stage.setWidth(bounds.getWidth());
+		stage.setHeight(bounds.getHeight());
+	}
+	
+	public static void centralizarJanela(Stage stage){
+		Dimension d = Toolkit.getDefaultToolkit().getScreenSize(); 
+			System.out.println(d.height + " - " + d.width);
+		stage.setX((d.height-stage.getHeight())/2);
+		stage.setY((d.width-stage.getWidth())/2);
+		stage.setResizable(false);
+	}
 	
 //	public static String getServidorIP() throws IOException {
 //		String url = ConfiguracaoBD.getURL();

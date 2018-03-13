@@ -178,5 +178,12 @@
 			<version>2.1.0</version>
 		</dependency>
 		
+		<dependency>
+    <groupId>org.wildfly.swarm</groupId>
+    <artifactId>javafx</artifactId>
+    <version>2018.2.0.Final</version>
+</dependency>
+		
+		
 	</dependencies>
 </project>

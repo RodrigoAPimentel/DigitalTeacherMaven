@@ -3,7 +3,6 @@ package org.pimentel.digitalteacher.dao;
 import java.util.List;
 
 import org.pimentel.digitalteacher.model.Pessoa;
-import org.pimentel.digitalteacher.util.DAOGeneric;
 
 public class PessoaDAO extends DAOGeneric<Pessoa, Integer>{
 	

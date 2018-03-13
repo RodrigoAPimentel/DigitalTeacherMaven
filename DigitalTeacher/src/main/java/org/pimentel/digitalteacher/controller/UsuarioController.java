@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.pimentel.digitalteacher.dao.UsuarioDAO;
 import org.pimentel.digitalteacher.model.ConfiguracaoInicial;
-import org.pimentel.digitalteacher.teste.Usuario;
+import org.pimentel.digitalteacher.model.Usuario;
 
 public class UsuarioController implements Serializable {
 	

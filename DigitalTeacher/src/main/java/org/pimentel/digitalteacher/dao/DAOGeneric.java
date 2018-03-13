@@ -1,4 +1,4 @@
-package org.pimentel.digitalteacher.util;
+package org.pimentel.digitalteacher.dao;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;

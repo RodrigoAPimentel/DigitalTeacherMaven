@@ -1,0 +1,24 @@
+.background {
+	-fx-background-color: gainsboro ;
+}
+
+.botao-controle:hover {
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 255, 0.5), 5, 0.0, 0, 0);	
+	
+	-fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+    -fx-scale-z: 1.2;
+	
+	-fx-cursor: hand ;
+	
+	
+}
+
+.borda {		
+	-fx-border-color: orange    ;
+	-fx-padding: 5;
+	-fx-border-insets: 0;
+	-fx-border-width: 2;
+	-fx-border-radius: 5;
+	-fx-border-style: solid;
+}

@@ -67,7 +67,7 @@
 	-fx-font-style: italic;
 	-fx-font-weight: bold;
 	-fx-font-size: 14;
-	-fx-alignment: center;
+	-fx-alignment: baseline-left ;
 }
 
 .pane-esquerdo {

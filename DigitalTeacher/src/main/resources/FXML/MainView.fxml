@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pimentel.digitalteacher.controller.MainViewController">
+	<top>
+		<VBox fx:id="vboxTop" alignment="CENTER" styleClass="background-logo-top" stylesheets="@../CSS/MainView.css" BorderPane.alignment="CENTER">
+			<children>
+				<ImageView fx:id="imgLogoTop" fitHeight="150.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@../IMAGENS/ICONES/Logo%20Teacher%20Digital-02.png" />
+					</image>
+				</ImageView>
+			</children>
+		</VBox>
+	</top>
+	<left>
+      <ScrollPane vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+         <content>
+      		<VBox prefWidth="200.0">
+      			<children>
+      				<TitledPane fx:id="titledFuncionario" expanded="false" text="Funcionario" textAlignment="CENTER">
+      					<content>
+      						<AnchorPane minHeight="0.0" minWidth="0.0">
+      							<children>
+      								<VBox layoutX="19.6" layoutY="-100.0" prefWidth="179.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      									<children>
+      										<HBox fx:id="itenFuncAdd" alignment="CENTER_LEFT" onMouseClicked="#clickeditenFuncAdd" prefWidth="200.0" spacing="10.0" styleClass="t" stylesheets="@../CSS/MainView.css">
+      											<children>
+      												<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      													<image>
+      														<Image url="@../IMAGENS/ICONES/usuarioADD.png" />
+      													</image>
+      												</ImageView>
+      												<Label text="Adicionar">
+      													<font>
+      														<Font name="Times New Roman Bold" size="16.0" />
+      													</font>
+      												</Label>
+      											</children>
+      										</HBox>
+      										<Separator prefWidth="200.0" />
+      										<HBox fx:id="itenFuncRemove" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickeditenFuncRemove" prefWidth="200.0" spacing="10.0" styleClass="t" stylesheets="@../CSS/MainView.css">
+      											<children>
+      												<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      													<image>
+      														<Image url="@../IMAGENS/ICONES/usuarioREMOVE.png" />
+      													</image>
+      												</ImageView>
+      												<Label text="Remover">
+      													<font>
+      														<Font name="Times New Roman Bold" size="16.0" />
+      													</font>
+      												</Label>
+      											</children>
+      										</HBox>
+      										<Separator prefWidth="200.0" />
+      										<HBox fx:id="itenFuncPesquisar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="35.0" onMouseClicked="#clickeditenFuncPesquisar" prefWidth="200.0" spacing="10.0" styleClass="t" stylesheets="@../CSS/MainView.css">
+      											<children>
+      												<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      													<image>
+      														<Image url="@../IMAGENS/ICONES/usuarioPESQUISA.png" />
+      													</image>
+      												</ImageView>
+      												<Label text="Pesquisar">
+      													<font>
+      														<Font name="Times New Roman Bold" size="16.0" />
+      													</font>
+      												</Label>
+      											</children>
+      										</HBox>
+      										<Separator prefWidth="200.0" />
+      										<HBox fx:id="itenFuncEdit" alignment="CENTER_LEFT" layoutX="10.0" layoutY="60.0" onMouseClicked="#clickeditenFuncEdit" prefWidth="200.0" spacing="10.0" styleClass="t" stylesheets="@../CSS/MainView.css">
+      											<children>
+      												<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      													<image>
+      														<Image url="@../IMAGENS/ICONES/usuarioEditar.png" />
+      													</image>
+      												</ImageView>
+      												<Label text="Editar">
+      													<font>
+      														<Font name="Times New Roman Bold" size="16.0" />
+      													</font>
+      												</Label>
+      											</children>
+      										</HBox>
+      									</children>
+      								</VBox>
+      							</children>
+      						</AnchorPane>
+      					</content>
+      					<font>
+      						<Font name="Times New Roman Bold" size="16.0" />
+      					</font>
+      				</TitledPane>
+      				<TitledPane fx:id="titledProfessor" expanded="false" layoutX="10.0" layoutY="10.0" text="Professor" textAlignment="CENTER">
+      					<content>
+      						<AnchorPane minHeight="0.0" minWidth="0.0">
+      							<children>
+      								<VBox layoutX="19.6" layoutY="-100.0" prefWidth="179.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      									<children>
+      										<HBox fx:id="itenProfAdd" alignment="CENTER_LEFT" onMouseClicked="#clickeditenProfAdd" prefWidth="200.0" spacing="10.0" styleClass="t" stylesheets="@../CSS/MainView.css">
+      											<children>
+      												<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      													<image>
+      														<Image url="@../IMAGENS/ICONES/usuarioADD.png" />
+      													</image>
+      												</ImageView>
+      												<Label text="Adicionar">
+      													<font>
+      														<Font name="Times New Roman Bold" size="16.0" />
+      													</font>
+      												</Label>
+      											</children>
+      										</HBox>
+      										<Separator prefWidth="200.0" />
+      										<HBox fx:id="itenProfRemove" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickeditenProfRemove" prefWidth="200.0" spacing="10.0" styleClass="t" stylesheets="@../CSS/MainView.css">
+      											<children>
+      												<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      													<image>
+      														<Image url="@../IMAGENS/ICONES/usuarioREMOVE.png" />
+      													</image>
+      												</ImageView>
+      												<Label text="Remover">
+      													<font>
+      														<Font name="Times New Roman Bold" size="16.0" />
+      													</font>
+      												</Label>
+      											</children>
+      										</HBox>
+      										<Separator prefWidth="200.0" />
+      										<HBox fx:id="itenProfPesquisar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="35.0" onMouseClicked="#clickeditenProfPesquisar" prefWidth="200.0" spacing="10.0" styleClass="t" stylesheets="@../CSS/MainView.css">
+      											<children>
+      												<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      													<image>
+      														<Image url="@../IMAGENS/ICONES/usuarioPESQUISA.png" />
+      													</image>
+      												</ImageView>
+      												<Label text="Pesquisar">
+      													<font>
+      														<Font name="Times New Roman Bold" size="16.0" />
+      													</font>
+      												</Label>
+      											</children>
+      										</HBox>
+      										<Separator prefWidth="200.0" />
+      										<HBox fx:id="itenProfEdit" alignment="CENTER_LEFT" layoutX="10.0" layoutY="60.0" onMouseClicked="#clickeditenProfEdit" prefWidth="200.0" spacing="10.0" styleClass="t" stylesheets="@../CSS/MainView.css">
+      											<children>
+      												<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      													<image>
+      														<Image url="@../IMAGENS/ICONES/usuarioEditar.png" />
+      													</image>
+      												</ImageView>
+      												<Label text="Editar">
+      													<font>
+      														<Font name="Times New Roman Bold" size="16.0" />
+      													</font>
+      												</Label>
+      											</children>
+      										</HBox>
+      									</children>
+      								</VBox>
+      							</children>
+      						</AnchorPane>
+      					</content>
+      					<font>
+      						<Font name="Times New Roman Bold" size="16.0" />
+      					</font>
+      				</TitledPane>
+                  <TitledPane fx:id="titledSair" animated="false" collapsible="false" expanded="false" layoutX="10.0" layoutY="41.0" onMouseClicked="#clickedtitledSair" styleClass="t" stylesheets="@../CSS/MainView.css" text="Sair" textAlignment="CENTER">
+                     <font>
+                        <Font name="Times New Roman Bold" size="16.0" />
+                     </font>
+                  </TitledPane>
+      			</children>
+      		</VBox>
+         </content>
+      </ScrollPane>
+	</left>
+	<bottom>
+		<HBox alignment="CENTER" styleClass="background-botton" stylesheets="@../CSS/MainView.css" BorderPane.alignment="CENTER">
+			<children>
+				<HBox alignment="CENTER" spacing="5.0">
+					<children>
+						<HBox alignment="CENTER">
+							<children>
+								<ImageView fx:id="imgUserTop" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@../IMAGENS/ICONES/usuarioLogado.png" />
+									</image>
+								</ImageView>
+							</children>
+						</HBox>
+						<HBox alignment="CENTER" spacing="2.0">
+							<children>
+								<Label fx:id="lblUserTop" text="Usuario">
+									<font>
+										<Font name="Times New Roman Bold" size="18.0" />
+									</font>
+								</Label>
+								<ImageView fx:id="imgUserOptTop" fitHeight="10.0" fitWidth="10.0" onMouseClicked="#clickedImgUserOptTop" pickOnBounds="true" preserveRatio="true" styleClass="button">
+									<image>
+										<Image url="@../IMAGENS/ICONES/icons8_Double_Down_96px.png" />
+									</image>
+								</ImageView>
+							</children>
+						</HBox>
+					</children>
+					<padding>
+						<Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
+					</padding>
+				</HBox>
+			</children>
+		</HBox>
+	</bottom>
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="pane-itens" stylesheets="@../CSS/MainView.css" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </BorderPane.margin>
+         <children>
+            <BorderPane prefHeight="85.0" prefWidth="521.0">
+               <top>
+                  <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="background-panel" stylesheets="@../CSS/MainView.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../IMAGENS/ICONES/funcionario.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Funcionario &gt; Adicionar">
+                           <font>
+                              <Font name="Times New Roman Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </top>
+               <bottom>
+                  <HBox BorderPane.alignment="CENTER">
+                     <children>
+                        <JFXButton />
+                        <JFXButton />
+                     </children>
+                  </HBox>
+               </bottom>
+            </BorderPane>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>
