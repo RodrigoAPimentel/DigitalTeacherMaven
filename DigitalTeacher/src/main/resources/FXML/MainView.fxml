@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -15,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pimentel.digitalteacher.controller.MainViewController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" styleClass="background-logo-top" stylesheets="@../CSS/MainView.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.pimentel.digitalteacher.controller.MainViewController">
 	<top>
 		<VBox fx:id="vboxTop" alignment="CENTER" styleClass="background-logo-top" stylesheets="@../CSS/MainView.css" BorderPane.alignment="CENTER">
 			<children>
@@ -24,15 +23,16 @@
 						<Image url="@../IMAGENS/ICONES/Logo%20Teacher%20Digital-02.png" />
 					</image>
 				</ImageView>
+            <Separator prefWidth="200.0" />
 			</children>
 		</VBox>
 	</top>
 	<left>
-      <ScrollPane vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+      <ScrollPane nodeOrientation="LEFT_TO_RIGHT" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
          <content>
       		<VBox prefWidth="200.0">
       			<children>
-      				<TitledPane fx:id="titledFuncionario" expanded="false" text="Funcionario" textAlignment="CENTER">
+      				<TitledPane fx:id="titledFuncionario" text="Funcionario" textAlignment="CENTER">
       					<content>
       						<AnchorPane minHeight="0.0" minWidth="0.0">
       							<children>
@@ -227,41 +227,10 @@
 		</HBox>
 	</bottom>
    <center>
-      <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="pane-itens" stylesheets="@../CSS/MainView.css" BorderPane.alignment="CENTER">
+      <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" styleClass="pane-itens" stylesheets="@../CSS/MainView.css" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </BorderPane.margin>
-         <children>
-            <BorderPane prefHeight="85.0" prefWidth="521.0">
-               <top>
-                  <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="background-panel" stylesheets="@../CSS/MainView.css" BorderPane.alignment="CENTER">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../IMAGENS/ICONES/funcionario.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="Funcionario &gt; Adicionar">
-                           <font>
-                              <Font name="Times New Roman Bold" size="30.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="10.0" top="5.0" />
-                     </padding>
-                  </HBox>
-               </top>
-               <bottom>
-                  <HBox BorderPane.alignment="CENTER">
-                     <children>
-                        <JFXButton />
-                        <JFXButton />
-                     </children>
-                  </HBox>
-               </bottom>
-            </BorderPane>
-         </children>
       </StackPane>
    </center>
 </BorderPane>

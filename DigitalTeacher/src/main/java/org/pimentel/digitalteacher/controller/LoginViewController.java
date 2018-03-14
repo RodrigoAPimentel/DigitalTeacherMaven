@@ -40,44 +40,27 @@ import javafx.util.Duration;
 public class LoginViewController implements Initializable {	
 
 	@FXML private AnchorPane AnchorPanePrincipal;
-	@FXML private Pane PaneLogin;
-	@FXML private JFXTextField txtFieldUsuario;
-	@FXML private JFXTextField txtVerSenha;
+	@FXML private Pane PaneLogin, PaneSobre, PaneInternet;
+	@FXML private JFXTextField txtFieldUsuario, txtVerSenha;
 	@FXML private JFXPasswordField passSenha;
-	@FXML private ImageView imVerSenha;
-	@FXML private JFXButton btnEntrar;
-	@FXML private JFXButton btnSair;
-	@FXML private Pane PaneSobre;
-	@FXML private Label lblVersao;
-	@FXML private Label lblAnoCorrente;
+	@FXML private JFXButton btnEntrar, btnSair, btnInternetOK;
+	@FXML private Label lblVersao, lblAnoCorrente, lblTipoConexao, lblInterface, lblIP, lblHost, lblSerial;
 	@FXML private JFXButton btnSobreOK;
-	@FXML private ImageView icoConfigBD;
-	@FXML private ImageView icoInternet;
-	@FXML private ImageView icoSobre;    
+	@FXML private ImageView icoConfigBD, icoInternet, icoSobre, imVerSenha, imAlerta, imIcone, imBanner;
 	@FXML private StackPane stackPane;
+	@FXML private Text lblNomeAplicativo;
 	private String auxVerSenha;
-	private ObservableList<Node> panels;  
-	@FXML private Pane PaneInternet;
-	@FXML private JFXButton btnInternetOK;
-	@FXML private Label lblTipoConexao;
-	@FXML private Label lblInterface;
-	@FXML private Label lblIP;
-	@FXML private Label lblHost;
-	@FXML private Label lblSerial;
-	@FXML private ImageView imAlerta;
-	@FXML private ImageView imIcone;	 
-	@FXML private Text lblNomeAplicativo;	 
-	@FXML private ImageView imBanner;	
+	private ObservableList<Node> panels; 	
 	private ConfiguracaoInicialController configuracaoInicialController;
 	private UsuarioController usuariocontroller;
 
 	@FXML
-	void onConfigBD(MouseEvent event) {
+	private void onConfigBD(MouseEvent event) {
 
 	}
 
 	@FXML
-	void onEntrar(ActionEvent event) throws IOException {
+	private void onEntrar(ActionEvent event) throws IOException {
 		Boolean logar = usuariocontroller.logar(txtFieldUsuario.getText(), passSenha.getText());
 		if (logar) {
 			StageController.instance(null).loadNewStage("MainView");			 
@@ -87,27 +70,27 @@ public class LoginViewController implements Initializable {
 	}
 
 	@FXML
-	void onSair(ActionEvent event) {
+	private void onSair(ActionEvent event) {
 		Platform.exit();
 	}
 
 	@FXML
-	void onSobre(MouseEvent event) {
+	private void onSobre(MouseEvent event) {
 		mudarPane(1);
 	}
 
 	@FXML
-	void onSobreOK(ActionEvent event) {
+	private void onSobreOK(ActionEvent event) {
 		mudarPane(0);
 	}
 
 	@FXML
-	void onInternet(MouseEvent event) {
+	private void onInternet(MouseEvent event) {
 		mudarPane(2);
 	}
 
 	@FXML
-	void onInternetOK(ActionEvent event) {
+	private void onInternetOK(ActionEvent event) {
 		mudarPane(0);
 	}
 

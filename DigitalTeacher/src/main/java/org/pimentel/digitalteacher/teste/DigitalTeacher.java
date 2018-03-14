@@ -20,16 +20,16 @@ public class DigitalTeacher extends Application{
 		Parent root = null;
 		Scene scene;
 		
-		ConfiguracaoInicialController configuracaoInicialController = new ConfiguracaoInicialController();		
-		stage.setTitle(configuracaoInicialController.carregaConfiguracaoInicial().getNome());
-		stage.getIcons().add(new Image(configuracaoInicialController.carregaConfiguracaoInicial().getIconeURL()));
-		stage.setResizable(false);		
-		stage.initStyle(StageStyle.TRANSPARENT);	
+//		ConfiguracaoInicialController configuracaoInicialController = new ConfiguracaoInicialController();		
+//		stage.setTitle(configuracaoInicialController.carregaConfiguracaoInicial().getNome());
+//		stage.getIcons().add(new Image(configuracaoInicialController.carregaConfiguracaoInicial().getIconeURL()));
+//		stage.setResizable(false);		
+//		stage.initStyle(StageStyle.TRANSPARENT);	
 		
 		
 		stage.centerOnScreen();	
-		root = FXMLLoader.load(getClass().getResource("/FXML/LoginView.fxml"));
-//		root = FXMLLoader.load(getClass().getResource("/FXML/MainView.fxml"));
+//		root = FXMLLoader.load(getClass().getResource("/FXML/LoginView.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/FXML/MainView.fxml"));
 		
 //		root = FXMLLoader.load(getClass().getResource("/FXML/Mv.fxml"));
 
