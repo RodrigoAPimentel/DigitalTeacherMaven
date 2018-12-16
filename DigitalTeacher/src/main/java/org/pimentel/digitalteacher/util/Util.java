@@ -41,7 +41,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class Util {
+public abstract class Util {
 	
 	private static ArrayList<String> dadosPersistenceXML = new ArrayList<String>();
 

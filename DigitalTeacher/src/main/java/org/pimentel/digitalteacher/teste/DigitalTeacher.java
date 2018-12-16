@@ -28,8 +28,8 @@ public class DigitalTeacher extends Application{
 		
 		
 		stage.centerOnScreen();	
-//		root = FXMLLoader.load(getClass().getResource("/FXML/LoginView.fxml"));
-		root = FXMLLoader.load(getClass().getResource("/FXML/MainView.fxml"));
+		root = FXMLLoader.load(getClass().getResource("/FXML/LoginView.fxml"));
+//		root = FXMLLoader.load(getClass().getResource("/FXML/MainView.fxml"));
 		
 //		root = FXMLLoader.load(getClass().getResource("/FXML/Mv.fxml"));
 
