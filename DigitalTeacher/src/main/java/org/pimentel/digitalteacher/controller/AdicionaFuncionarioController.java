@@ -11,10 +11,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+/**
+ * teste git
+ * @author pimen
+ *
+ */
 public class AdicionaFuncionarioController implements Initializable {
 	
 	@FXML
-    private JFXButton btnSalvar;
+    private JFXButton btnSalvarrrrrr;
 
     @FXML
     private JFXButton btnFechar;
@@ -30,7 +35,7 @@ public class AdicionaFuncionarioController implements Initializable {
     }
     
     private void carregaImagemBotao() {
-    	btnSalvar.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("/IMAGENS/ICONES/save20px.png"))));
+    	btnSalvarrrrrr.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("/IMAGENS/ICONES/save20px.png"))));
     	btnFechar.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("/IMAGENS/ICONES/sair20px.png"))));
     	
     }
